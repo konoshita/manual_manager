@@ -76,3 +76,6 @@ gem "sassc-rails"
 gem 'slim-rails'
 gem 'html2slim'
 gem 'devise'
+gem 'pry-byebug'
+gem "rails-i18n", "~> 7.0.0"
+gem 'devise-i18n'

@@ -9,7 +9,6 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <body>
-
     <%= render 'shared/sidebar' %>
     
     
@@ -20,6 +19,7 @@
     
       <main id="main">
         <div id="main-visual">
+        <%= render 'shared/flash_messages' %>
         <%= yield %>
         </div>
     
