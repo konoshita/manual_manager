@@ -73,3 +73,6 @@ end
 
 #追加
 gem "sassc-rails"
+gem 'slim-rails'
+gem 'html2slim'
+gem 'devise'

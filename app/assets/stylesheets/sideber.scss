@@ -1,3 +1,4 @@
+// 共通レイアウト
 * {
 	margin: 0;
 	padding: 0;
@@ -7,6 +8,13 @@
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+// リセット
+button {
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
 html,body {
@@ -42,25 +50,7 @@ body {
 
 /* main-visual */
 #main-visual {
-	background: #64CE80;
-	background: -webkit-linear-gradient(-45deg, #64CE80, #C68BC4);
-	background: -moz-linear-gradient(-45deg, #64CE80, #C68BC4);
-	background: -ms-linear-gradient(-45deg, #64CE80, #C68BC4);
-	background: -o-linear-gradient(-45deg, #64CE80, #C68BC4);
-	background: linear-gradient(-45deg, #64CE80, #C68BC4);
-
-
-	height: 400px;
-	display: flex;
-
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
+padding: 20px;
 }
 #main-visual h2 {
 	font-size: 21px;
@@ -111,7 +101,7 @@ h3 {
 	position: relative;
 }
 
-#global-nav a {
+#global-nav a,.sub-menu-change {
 	color: #aeb4cb;
 	text-decoration: none;
 	display: block;
@@ -121,7 +111,7 @@ h3 {
 	transition: color .3s linear;
 }
 #global-nav .sub-menu.is-active > a,
-#global-nav a:hover {
+#global-nav a:hover, .sub-menu-change:hover {
 	color: #fff;
 	/*background: #fff;*/
 }
@@ -304,4 +294,194 @@ h3 {
   color: white;
   padding: 3rem 0;
   text-align: center;
+}
+
+// テーブルデザイン
+.design10 {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+ }
+ .design10 th {
+  padding: 10px;
+  border-bottom: solid 4px #778ca3;
+  color: #778ca3
+ }
+ .design10 td {
+  padding: 10px;
+  border-bottom: solid 1px #778ca3;
+ }
+
+ //サインアップ、サインイン
+ .signin {
+  background-color: #d3d3d3;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.login {
+  position: relative;
+  height: 560px;
+  width: 405px;
+  margin: auto;
+  padding: 60px 60px;
+  background: url(https://picsum.photos/id/1004/5616/3744) no-repeat   center center #505050;   
+  background-size: cover;
+  box-shadow: 0px 30px 60px -5px #000;
+}
+
+form {
+  padding-top: 80px;
+}
+
+.active {
+  border-bottom: 2px solid #1161ed;
+}
+
+.nonactive {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+  padding-left: 12px;
+  font-size: 22px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+  display: inline-block;
+  font-weight: 100;
+}
+
+h2:first-child {
+  padding-left: 0px;
+}
+
+span {
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: 0.4; 
+  display: inline-block;
+  position: relative;
+  top: -65px;
+  transition: all 0.5s ease-in-out;
+}
+
+.form-text {
+  border: none;
+  width: 89%;
+  padding: 10px 20px;
+  display: block;
+  height: 15px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0);
+  overflow: hidden;
+  margin-top: 15px;
+  transition: all 0.5s ease-in-out;
+}
+
+.form-text:focus {
+  outline: 0;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.form-text:focus + span {
+  opacity: 0.6;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+
+
+
+input {
+  display: inline-block;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+h2,
+span,
+.custom-checkbox {
+  margin-left: 20px;
+}
+
+.custom-checkbox {
+  -webkit-appearance: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 2px;
+  display: inline-block;
+  position: relative;
+  top: 6px;
+}
+
+.custom-checkbox:checked {
+  background-color: rgba(17, 97, 237, 1);
+}
+
+.custom-checkbox:checked:after {
+  content: '\2714';
+  font-size: 10px;
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  color: #fff;
+}
+
+.custom-checkbox:focus {
+  outline: none;
+}
+
+label {
+  display: inline-block;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.signin-btn {
+  background-color: #1161ed;
+  color: #FFF;
+  width: 100%;
+  padding: 10px 20px;
+  display: block;
+  height: 39px;
+  border-radius: 20px;
+  margin-top: 30px;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  text-transform: uppercase;
+}
+
+.signin-btn:hover {
+  background: #4082f5;
+  box-shadow: 0px 4px 35px -5px #4082f5;
+  cursor: pointer;
+}
+
+.signin-btn:focus {
+  outline: none;
+}
+
+.login hr {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  top: 85px;
+  position: relative;
+}
+
+.login a {
+  text-align: center;
+  display: block;
+  top: 120px;
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.2);
 }

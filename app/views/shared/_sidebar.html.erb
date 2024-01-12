@@ -9,9 +9,9 @@
 <aside id="sidebar" class="scroll">
 	<nav id="global-nav">
 		<ul>
-			<li><a href="#">Home</a></li>
+			<li><%= link_to 'HOME', root_path %></li>
 			<li class="sub-menu">
-				<a href="#" class="sub-menu-head">About</a>
+      <%= link_to 'マニュアル作成', new_manual_path %>
 				<ul class="sub-menu-nav">
 					<li><a href="#">About 1</a></li>
 					<li><a href="#">About 2</a></li>
@@ -24,7 +24,7 @@
 					<li><a href="#">Product 2</a></li>
 				</ul>
 			</li>
-			<li><a href="#">Link</a></li>
+			<li><%= button_to "ログアウト", destroy_user_session_path, class: "sub-menu-change", method: :delete %></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
 	</nav>
