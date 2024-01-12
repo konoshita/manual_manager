@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      manual: 'マニュアル'
+    successful:
+      messages:
+        created: "%{model}に1件登録されました。"
+        updated: "%{model}の情報が変更されました。"
+        destroyed: "%{model}から1件削除されました。"
+    attributes:
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        name: '名前'
