@@ -2,7 +2,6 @@
   <h2 class="active"> sign up </h2>
 
   <h2 class="nonactive"> sign in </h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -30,7 +29,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" ,class:"signin-btn" %>
+    <%= f.submit (t 'defaults.register') ,class:"signin-btn" %>
   </div>
 <% end %>
 

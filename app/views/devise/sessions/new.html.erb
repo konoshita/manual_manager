@@ -1,14 +1,22 @@
-<h2>Log in</h2>
+<div class="login">
+  <h2 class="nonactive"> sign up </h2>
 
+  <h2 class="active"> sign in </h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :name %> <br />
+    <%= f.text_field :name ,class:"form-text" %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-text"%>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password",class:"form-text" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,7 +27,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit (t 'defaults.login') ,class:"signin-btn" %>
   </div>
 <% end %>
 
