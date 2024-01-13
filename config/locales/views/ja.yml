@@ -23,3 +23,15 @@ ja:
   profiles:
     show:
       title: 'プロフィール'
+  admin:
+  user_sessions:
+    new:
+      title: 'ログイン'
+    create:
+      success: 'ログインしました'
+      fall: 'ログインに失敗しました'
+    destroy:
+      success:  'ログアウトしました'
+  dashboards:
+    index:
+      title: 'ダッシュボード'
