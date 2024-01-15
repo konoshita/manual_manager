@@ -9,6 +9,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+<% if current_user.role == "admin" %>
 <div class="wrapper">
 
   <%= render 'admin/shared/header' %>
@@ -25,5 +26,6 @@
 
 </div>
 <%= javascript_include_tag 'admin' %>
+<% end %>
 </body>
 </html>

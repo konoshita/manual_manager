@@ -103,6 +103,8 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.12.0)
       devise (>= 4.9.0)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.12.0)
     execjs (2.9.1)
     ffi (1.16.3)
@@ -280,6 +282,7 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
+  enum_help
   font-awesome-sass (~> 5.11.2)
   html2slim
   importmap-rails

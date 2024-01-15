@@ -79,6 +79,7 @@ gem 'devise'
 gem 'pry-byebug'
 gem "rails-i18n", "~> 7.0.0"
 gem 'devise-i18n'
+gem 'enum_help'
 gem 'bootstrap', '~> 5.3.0'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.11.2'

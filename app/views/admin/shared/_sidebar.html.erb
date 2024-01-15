@@ -14,8 +14,10 @@
         
       </div>
       <div class="info">
-        <a href="#" class="d-block"></a>
-      </div>
+        <% if user_signed_in? %>
+        <%= current_user.name =%>
+        <%end%>
+        </div>
     </div>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
