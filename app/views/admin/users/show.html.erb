@@ -17,12 +17,8 @@
           <td><%= @user.role_i18n %></td>
         </tr>
         <tr>
-          <th scope="row"><%= User.human_attribute_name(:full_name) %></th>
-          <td><%= @user.decorate.full_name %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
-          <td><%= image_tag @user.avatar.url %></td>
+          <th scope="row"><%= User.human_attribute_name(:name) %></th>
+          <td><%= @user.name %></td>
         </tr>
         <tr>
           <th scope="row"><%= User.human_attribute_name(:created_at) %></th>
