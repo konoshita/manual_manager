@@ -33,6 +33,20 @@ class Admin::UsersController < Admin::BaseController
         redirect_to admin_users_path, succecc: t('defaults.message.deleted', item: User.model_name.human)
     end
 
+    def withdrawal
+        @user = User.find(params[:id])
+              #!をつけて、true/falseを反転させて、有効、退会を切り替えることができる。
+        @user.update(is_deleted: !@user.is_deleted)
+    
+           if @user.is_deleted
+              flash[:notice] = "退会処理を実行いたしました"
+           else
+              flash[:notice] = "有効にします"
+           end
+              redirect_to admin_root_path
+       
+     end
+
     private
 
     def set_user
