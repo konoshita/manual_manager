@@ -14,6 +14,10 @@
   <td>
     <%= link_to t('defaults.show'), admin_user_path(user), class: 'btn btn-info' %>
     <%= link_to t('defaults.edit'), edit_admin_user_path(user), class: 'btn btn-success' %>
-    <%= link_to t('defaults.delete'), admin_user_path(user), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+    <% if user.is_deleted == true%>
+    <%= link_to "退会済み", admin_withdrawal_path(user), method: :patch, class: "btn btn-success" %>
+    <% else %>
+      <%= link_to "退会する", admin_withdrawal_path(user), method: :patch ,class: 'btn btn-danger' %>
+    <% end %>
   </td>
 </tr>
