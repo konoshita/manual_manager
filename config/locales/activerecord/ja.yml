@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       manual: 'マニュアル'
+      categorie: 'カテゴリー'
     successful:
       messages:
         created: "%{model}に1件登録されました。"
@@ -14,6 +15,13 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: '名前'
+      manual:
+        title: 'タイトル'
+        user_name: '編集者'
+        categories_id: 'カテゴリー'
+      categorie:
+        name: 'カテゴリー'
+      
   enums:
       user:
         role:

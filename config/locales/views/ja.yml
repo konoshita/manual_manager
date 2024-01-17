@@ -18,20 +18,31 @@ ja:
       title: 'マニュアル一覧'
     new:
       title: 'マニュアル作成'
-    bookmarks:
-      title: 'ブックマーク一覧'
+    show:
+      title: 'マニュアル詳細'
+    edit:
+      title: 'マニュアル編集'
   profiles:
     show:
       title: 'プロフィール'
   admin:
-  user_sessions:
-    new:
-      title: 'ログイン'
-    create:
-      success: 'ログインしました'
-      fall: 'ログインに失敗しました'
-    destroy:
-      success:  'ログアウトしました'
-  dashboards:
-    index:
-      title: 'ダッシュボード'
+    user_sessions:
+      new:
+        title: 'ログイン'
+      create:
+        success: 'ログインしました'
+        fall: 'ログインに失敗しました'
+      destroy:
+        success:  'ログアウトしました'
+    dashboards:
+      index:
+        title: 'ダッシュボード'
+    manuals:
+      index:
+        title: 'マニュアル一覧'
+      new:
+        title: 'マニュアル作成'
+      show:
+        title: 'マニュアル詳細'
+      edit:
+        title: 'マニュアル編集'
