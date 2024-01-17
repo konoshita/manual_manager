@@ -1,21 +1,11 @@
 class Admin::UsersController < Admin::BaseController
-    before_action :set_user, only: %i[show edit update delete]
+    before_action :set_user, only: %i[show edit update withdrawal]
     
     def index
         @users = User.all
     end
     
     def show; end
-
-    def hide
-		@user = User.find(params[:id])
-		#is_deletedカラムにフラグを立てる(defaultはfalse)
-    	@user.update(is_deleted: true)
-    	#ログアウトさせる
-    	reset_session
-    	flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    	redirect_to root_path
-	end
 
     def edit; end
 
@@ -28,14 +18,7 @@ class Admin::UsersController < Admin::BaseController
         end
     end
 
-    def delete
-        @user.delete
-        redirect_to admin_users_path, succecc: t('defaults.message.deleted', item: User.model_name.human)
-    end
-
     def withdrawal
-        @user = User.find(params[:id])
-              #!をつけて、true/falseを反転させて、有効、退会を切り替えることができる。
         @user.update(is_deleted: !@user.is_deleted)
     
            if @user.is_deleted
