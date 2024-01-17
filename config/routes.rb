@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  get 'users/new'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-   root "manuals#index"
-   resources :manuals, only: %i[index new create edit update destroy]
+  namespace :admin do
+    root to: 'dashboards#index'
+    resources :users, only: %i[index show edit update]
+    resources :manuals, only: %i[index new create edit update destroy]
+    patch "withdrawal/:id" => "users#withdrawal", as: "withdrawal"
+  end
+  resources :manuals, only: %i[index new ]
+  root "manuals#index"
+
 end
