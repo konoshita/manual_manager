@@ -8,7 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <body>
+    <body >
     <%= render 'shared/sidebar' %>
     
     
@@ -64,5 +64,9 @@
         });
     })(jQuery);
     </script>
+    <script>
+    $(function(){
+      $('.flash-message').fadeOut(4000);
+    });</script>
     </body>
 </html>
