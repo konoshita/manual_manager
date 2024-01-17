@@ -1,6 +1,7 @@
 class ManualsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @manuals = Manual.all.includes(:user).order(created_at: :desc)
   end
   def new
     @manual = Manual.new
