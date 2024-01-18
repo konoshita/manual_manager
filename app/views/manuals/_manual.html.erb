@@ -1,19 +1,32 @@
-<tr>
-  <td>
-    <%= manual.id %>
-  </td>
-  <td>
-    <%= manual.title %>
-  </td>
-  <td>
-    <%= manual.user.name %>
-  </td>
-  <td>
-    <%= manual.created_at %>
-  </td>
-  <td>
-    <%= link_to t('defaults.show'), admin_manual_path(manual), class: 'btn btn-info' %>
-    <%= link_to t('defaults.edit'), edit_admin_manual_path(manual), class: 'btn btn-success' %>
-    <%= button_to "削除", admin_manual_path(manual), method: :delete, class: "btn btn-danger" %>
-  </td>
-</tr>
+
+<style>
+.card {
+	position:relative;
+	transition:box-shadow 0.3s, transform 0.3s;
+}
+
+	.card:before {
+			position:absolute;
+			top:0;
+			left:0;
+			display:block;
+			width:100%;
+			height:100%;
+			content:"";
+			transition:box-shadow 0.3s;
+	}
+
+.card:hover {
+	box-shadow:none;
+	transform:scale(0.98);
+}
+
+	.card:hover::before {
+			box-shadow:inset 0 2px 5px rgba(0, 0, 0, 0.3);
+	}
+</style>
+<div class="col">
+<%= link_to manual_path(manual) do %>
+  <%= link_to manual.title, manual_path(manual) ,class: "card  mb-3 p-4", style:"max-width: 18rem;" %></div>
+<% end %>
+

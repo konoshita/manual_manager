@@ -1,24 +1,12 @@
 <% content_for(:title, t('.title')) %>
 <h1><%= t('.title') %></h1>
 <!-- 掲示板一覧 -->
-
-<table>
-    <tbody>
-    <thead>
-        <tr>
-        <th><%= Manual.human_attribute_name(:id) %></th>
-        <th><%= Manual.human_attribute_name(:title) %></th>
-        <th><%= Manual.human_attribute_name(:user_id) %></th>
-        <th><%= Manual.human_attribute_name(:created_at) %></th>
-        <th></th>
-        </tr>
-      </thead>
-    </tbody>
-    <tbody>
-        <% if @manuals.present? %>
-          <%= render @manuals %>
-        <% else %>
-          <p><%= t('.no_result') %></p>
-        <% end %>
-        </tbody>
-</table>
+<div class="container text-center">
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+  <% if @manuals.present? %>
+  <%= render @manuals %>
+<% else %>
+  <%= t('.no_result') %>
+<% end %>
+</div>
+</div>

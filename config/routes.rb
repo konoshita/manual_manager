@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :categories, except: [:new, :show]
     patch "withdrawal/:id" => "users#withdrawal", as: "withdrawal"
   end
-  resources :manuals, only: %i[index new ]
+  resources :manuals, only: %i[index new show]
   root "manuals#index"
 
 end
