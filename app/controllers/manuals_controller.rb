@@ -1,5 +1,6 @@
 class ManualsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_manual, only: %i[ show ]
   def index
     @manuals = Manual.all.includes(:user).order(created_at: :desc)
   end
@@ -7,14 +8,16 @@ class ManualsController < ApplicationController
     @manual = Manual.new
   end
 
-  def create
-    @manual = Manual.new(manual_params)
-    @manual.state = :draft
+  def show; end
+ 
 
-    if @manual.save
-      redirect_to root_path
-    else
-      render :new
-    end
+  private
+
+  def set_manual
+      @manual = Manual.find(params[:id])
+  end
+  
+  def manual_params
+      params.require(:manual).permit(:title, :user_id, :category_id)
   end
 end

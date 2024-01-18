@@ -1,0 +1,29 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class="row">
+  <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+      <h1><%= t('.title') %></h1>
+      <div class="text-right mb-3">
+      
+      </div>
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row"><%= Manual.human_attribute_name(:id) %></th>
+          <td><%= @manual.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Manual.human_attribute_name(:title) %></th>
+          <td><%= @manual.title %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Manual.human_attribute_name(:user_id) %></th>
+          <td><%= @manual.user.name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Manual.human_attribute_name(:created_at) %></th>
+          <td><%= @manual.created_at %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
