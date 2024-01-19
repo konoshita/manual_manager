@@ -1,0 +1,7 @@
+= simple_form_for [:admin, category] do |f|
+  .box-body
+    = f.error_notification
+    = f.input :name
+  .box-footer
+    = f.button :submit, class: %w[btn btn-primary]
+

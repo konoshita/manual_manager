@@ -26,7 +26,7 @@
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
         <p>
-         マニュアル管理
+         マニュアル
           <i class="fas fa-angle-left right"></i>
         </p>
       </a>
@@ -35,7 +35,7 @@
       <%= link_to admin_manuals_path, class: "nav-link" do %>
           
             <i class="far fa-circle nav-icon"></i>
-            <p>マニュアル一覧</p>
+            <p>一覧</p>
             <% end %>
         </li>
         <li class="nav-item">
@@ -45,10 +45,10 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+        <%= link_to admin_categories_path, class: "nav-link" do %>
             <i class="far fa-circle nav-icon"></i>
-            <p>カテゴリー作成</p>
-          </a>
+            <p>カテゴリー</p>
+          <% end %>
         </li>
       </ul>
     </li>

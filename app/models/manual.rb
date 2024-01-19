@@ -1,6 +1,6 @@
 class Manual < ApplicationRecord
   belongs_to :user
-  has_many :categories, dependent: :destroy
+  belongs_to :category
 
   validates :title, presence: true, length: { maximum: 255 }
 end
