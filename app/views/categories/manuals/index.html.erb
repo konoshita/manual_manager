@@ -1,0 +1,4 @@
+<%= @categories.name %><br />
+<% @categories.manuals.each do |manual| %>
+  <%= link_to manual.title, manual_path(manual) %><br />
+<% end %>

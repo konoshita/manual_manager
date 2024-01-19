@@ -1,6 +1,10 @@
-= content_for 'content-header' do
-  | カテゴリー
-
+section.content-header
+  .container-fluid
+    .row.mb-2
+      .col-sm-6
+        h1 = t('.title')
+      .col-sm-6
+        - breadcrumb :admin_manuals 
 .row
   .col-md-9
     .box.box-primary

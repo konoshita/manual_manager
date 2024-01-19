@@ -9,6 +9,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+<%= breadcrumbs separator: " &rsaquo; " %>
 <% if current_user.role == "admin" %>
 <div class="wrapper">
 
@@ -17,7 +18,9 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  
     <%= render 'shared/flash_messages' %>
+    
     <%= yield %>
   </div>
   <!-- /.content-wrapper -->
