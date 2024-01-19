@@ -5,7 +5,7 @@
       <h1><%= t('.title') %></h1>
       <div class="text-right mb-3">
         <%= link_to t('defaults.edit'), edit_admin_manual_path(@manual), class: 'btn btn-success' %>
-        <%= link_to t('defaults.delete'), admin_manual_path(@manual), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+        <%= link_to t('defaults.delete'), admin_manual_path(@manual), method: :delete, data: { confirm: "#{@manual.title}を削除してもよろしいですか？" }, class: 'btn btn-danger' %>
       </div>
       <table class="table table-bordered bg-white">
         <tr>
@@ -19,6 +19,10 @@
         <tr>
           <th scope="row"><%= Manual.human_attribute_name(:user_id) %></th>
           <td><%= @manual.user.name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Manual.human_attribute_name(:categoriy_id) %></th>
+          <td><%= @manual.category.name %></td>
         </tr>
         <tr>
           <th scope="row"><%= Manual.human_attribute_name(:created_at) %></th>

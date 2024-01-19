@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root to: 'dashboards#index'
     resources :users, only: %i[index show edit update]
     resources :manuals, only: %i[index new show create edit update destroy]
-    resources :categories, except: [:new, :show]
+    resources :categories, only: %i[index new create edit update destroy]
     patch "withdrawal/:id" => "users#withdrawal", as: "withdrawal"
   end
   resources :manuals, only: %i[index new show]

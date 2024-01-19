@@ -9,11 +9,15 @@
     <%= manual.user.name %>
   </td>
   <td>
-    <%= manual.created_at %>
+    <%= l manual.created_at, format: :short %>
   </td>
   <td>
-    <%= link_to t('defaults.show'), admin_manual_path(manual), class: 'btn btn-info' %>
-    <%= link_to t('defaults.edit'), edit_admin_manual_path(manual), class: 'btn btn-success' %>
-    <%= button_to "削除", admin_manual_path(manual), method: :delete, class: "btn btn-danger" %>
+    <%= link_to t('defaults.show'), admin_manual_path(manual) %>
+  </td>
+  <td>
+    <%= link_to t('defaults.edit'), edit_admin_manual_path(manual) %>
+  </td>
+  <td>
+    <%= link_to t('defaults.delete'), admin_manual_path(manual), method: :delete , data: { confirm: "#{manual.title}を削除してもよろしいですか？" } %>
   </td>
 </tr>

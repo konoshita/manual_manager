@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  belongs_to :manual
+  has_many :manuals
 
 end
