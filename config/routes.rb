@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :categories, only: %i[index new create edit update destroy]
     patch "withdrawal/:id" => "users#withdrawal", as: "withdrawal"
   end
-  resources :manuals, only: %i[index new show]
+  resources :manuals, only: %i[index show]
   resources :categories, only: :index do
     resources :manuals, only: :index, module: :categories
   end

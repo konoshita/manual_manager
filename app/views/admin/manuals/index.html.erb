@@ -1,15 +1,9 @@
-<section class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-      <h1><%= t('.title') %></h1>
-      </div>
-      <div class="col-sm-6">
-      <% breadcrumb :admin_manuals %>
-      </div>
-    </div>
-  </div><!-- /.container-fluid -->
-</section>
+<% content_for(:title, t('.title')) %>
+
+<% breadcrumb :admin_manuals %>
+<div class="col-md-12">
+<div class="card card-primary card-outline">
+    <div class="card-header">
 <div class="container mb-5 pt-2">
   <!-- /.row -->
   <div class="row">
@@ -24,8 +18,8 @@
             <th scope="col"><%= Manual.human_attribute_name(:id) %></th>
             <th scope="col"><%= Manual.human_attribute_name(:title) %></th>
             <th scope="col"><%= Manual.human_attribute_name(:user_id) %></th>
+            <th scope="col"><%= Category.human_attribute_name(:name) %></th>
             <th scope="col"><%= Manual.human_attribute_name(:created_at) %></th>
-            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>

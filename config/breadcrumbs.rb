@@ -13,7 +13,12 @@ crumb :admin_users do
 end
 
 crumb :admin_user do |user|
-  link 'プロフィール', admin_user_path(user)
+  link 'ユーザー詳細', admin_user_path(user)
+  parent :admin_users
+end
+
+crumb :edit_admin_user_path do |user|
+  link 'ユーザー編集', admin_user_path(user.id)
   parent :admin_users
 end
 
@@ -43,7 +48,7 @@ crumb :edit_admin_author do |author|
 end
 
 crumb :admin_manuals do
-  link 'マニュアル', admin_manuals_path
+  link 'マニュアル一覧', admin_manuals_path
   parent :admin_dashboard
 end
 
@@ -52,17 +57,32 @@ crumb :new_admin_manual do
   parent :admin_manuals
 end
 
-crumb :edit_admin_manual do |manual|
-  link 'マニュアル編集', edit_admin_manual_path(manual.uuid)
+crumb :admin_manual_path do |manual|
+  link 'マニュアル詳細', admin_manual_path(manual.id)
   parent :admin_manuals
 end
 
-crumb :admin_tags do
-  link 'タグ', admin_tags_path
-  parent :admin_dashboard
+crumb :edit_admin_manual do |manual|
+  link 'マニュアル編集', edit_admin_manual_path(manual.id)
+  parent :admin_manuals
 end
 
-crumb :edit_admin_tag do |tag|
-  link 'タグ編集', edit_admin_tag_path(tag)
-  parent :admin_tags
+crumb :manuals_path do
+  link '<i class="fa fa-dashboard"></i> Home'.html_safe, manuals_path
+end
+
+
+crumb :manual_path do |manual|
+  link 'マニュアル詳細', manual_path(manual.id)
+  parent :manuals_path
+end
+
+crumb :categories_path do 
+  link 'カテゴリー', categories_path
+  parent :manuals_path
+end
+
+crumb :category_manuals_path do |category|
+  link 'マニュアル', category_manuals_path(category.id)
+  parent :manuals_path
 end
