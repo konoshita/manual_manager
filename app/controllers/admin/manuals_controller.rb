@@ -14,7 +14,7 @@ class Admin::ManualsController < Admin::BaseController
   def edit; end
 
   def update
-    authorize(@manual)
+    authorize(Manual)
     @manual.assign_attributes(manual_params)
       if @manual.update(manual_params)
           redirect_to admin_manual_path(@manual), success: t('defaults.message.updated', item: User.model_name.human)
@@ -25,10 +25,10 @@ class Admin::ManualsController < Admin::BaseController
   end
 
   def create
-    authorize(@manual)
+    authorize(Manual)
     @manual = current_user.manuals.build(manual_params)
     if @manual.save
-      redirect_to admin_manual_path(@manual), success: t('defaults.message.updated', item: User.model_name.human)
+      redirect_to admin_manuals_path, success: t('defaults.message.updated', item: User.model_name.human)
     else
       flash[:danger] = "記事の作成が失敗しました。もう一度試してください。"
       render :new
@@ -36,7 +36,7 @@ class Admin::ManualsController < Admin::BaseController
   end
 
   def destroy
-    authorize(@manual)
+    authorize(Manual)
 
     @manual.destroy
 

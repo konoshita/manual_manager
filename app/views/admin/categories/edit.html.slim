@@ -1,15 +1,12 @@
-section.content-header
-  .container-fluid
-    .row.mb-2
-      .col-sm-6
-        h1 = t('.title')
-      .col-sm-6
-        - breadcrumb :admin_manuals
 = content_for 'content-header' do
   | カテゴリー編集
 
 - breadcrumb :edit_admin_category, @category
 
-.box
-  = render 'form', category: @category
+.col-md-12
+  .card.card-primary.card-outline
+    .card-header
+
+      .box
+        = render 'form', category: @category
 

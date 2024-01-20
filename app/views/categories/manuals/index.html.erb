@@ -1,4 +1,10 @@
-<%= @categories.name %><br />
-<% @categories.manuals.each do |manual| %>
-  <%= link_to manual.title, manual_path(manual) %><br />
+<% content_for(:title, t('.title')) %>
+<% breadcrumb :category_manuals_path, @categories %>
+<% if @categories.manuals.exists? %>
+  <%= @categories.name %><br />
+    <% @categories.manuals.each do |manual| %>
+      <%= link_to manual.title, manual_path(manual) %><br />
+    <% end %>
+<% else %>
+  <%= t('.no_result') %>
 <% end %>
