@@ -112,11 +112,17 @@ GEM
       sassc (>= 1.11)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gretel (5.0.0)
+      actionview (>= 5.1, < 7.2)
+      railties (>= 5.1, < 7.2)
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -143,6 +149,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -171,6 +178,8 @@ GEM
     public_suffix (5.0.4)
     puma (5.6.8)
       nio4r (~> 2.0)
+    pundit (2.3.1)
+      activesupport (>= 3.0.0)
     racc (1.7.3)
     rack (2.2.8)
     rack-test (2.1.0)
@@ -216,6 +225,8 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
+    ruby-vips (2.2.0)
+      ffi (~> 1.12)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -229,6 +240,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form (5.3.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     slim (5.2.0)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -284,16 +298,20 @@ DEPENDENCIES
   devise-i18n
   enum_help
   font-awesome-sass (~> 5.11.2)
+  gretel
   html2slim
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   jquery-rails
   pry-byebug
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.8)
   rails-i18n (~> 7.0.0)
   sassc-rails
   selenium-webdriver
+  simple_form
   slim-rails
   sprockets-rails
   sqlite3 (~> 1.4)

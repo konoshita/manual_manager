@@ -1,0 +1,12 @@
+= content_for 'content-header' do
+  | カテゴリー編集
+
+- breadcrumb :edit_admin_category, @category
+
+.col-md-12
+  .card.card-primary.card-outline
+    .card-header
+
+      .box
+        = render 'form', category: @category
+

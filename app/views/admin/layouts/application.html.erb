@@ -17,15 +17,23 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <%= render 'shared/flash_messages' %>
-    <%= yield %>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= yield :'content-header' %></h1>
+                <%= breadcrumbs separator: " &rsaquo; " ,style: :ol, class: 'breadcrumb'%>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+      <%= render 'shared/flash_messages' %>
+      <%= yield %>
+    <!-- /.content-wrapper -->
   </div>
-  <!-- /.content-wrapper -->
-
   <%= render 'admin/shared/footer' %>
-
+  <%= javascript_include_tag 'admin' %>
+  <% end %>
 </div>
-<%= javascript_include_tag 'admin' %>
-<% end %>
 </body>
 </html>

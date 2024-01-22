@@ -1,0 +1,6 @@
+= form_with (model:[@manual, @sentence], method: :post) do |f|
+  .box-body
+    = f.error_notification
+    = f.input :content
+  .box-footer
+    = f.button :submit, class: %w[btn btn-primary]
