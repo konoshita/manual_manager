@@ -11,9 +11,9 @@
 		<li><a href="#"><% if user_signed_in? %>
 		<%= current_user.name =%>
 		<%end%></a></li>
-			<li><%= link_to 'HOME', root_path %></li>
+			<li><%= link_to 'マニュアル一覧', manuals_path %></li>
 			<li class="sub-menu">
-      <%= link_to 'マニュアル作成', new_manual_path %>
+      <%= link_to 'カテゴリー', categories_path %>
 				<ul class="sub-menu-nav">
 					<li><a href="#">About 1</a></li>
 					<li><a href="#">About 2</a></li>

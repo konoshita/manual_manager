@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag "bootstrap.min", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <body >
@@ -19,6 +19,16 @@
     
       <main id="main">
         <div id="main-visual">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1><%= yield :'content-header' %></h1>
+                <%= breadcrumbs separator: " &rsaquo; " ,style: :ol, class: 'breadcrumb'%>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
         <%= render 'shared/flash_messages' %>
         <%= yield %>
         </div>

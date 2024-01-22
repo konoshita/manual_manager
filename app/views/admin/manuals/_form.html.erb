@@ -1,0 +1,13 @@
+<%= form_with url: admin_manuals_path, model: @manual, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  
+  <div class="mb-3">
+    <%= f.label :categorie_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: 'form-select' %>
+  </div>
+  <%= f.submit '登録', class: 'btn btn-primary' %>
+<% end %>

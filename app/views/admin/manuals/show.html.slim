@@ -1,0 +1,108 @@
+sass:
+  .FlexTextarea 
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.8;
+
+  .FlexTextarea__dummy 
+    overflow: hidden;
+    visibility: hidden;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    min-height: 120px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    border: 1px solid;
+
+  .FlexTextarea__textarea
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid #b6c3c6;
+    border-radius: 4px;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    resize: none;
+
+  .FlexTextarea__textarea:focus
+    box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);
+    outline: 0;
+  
+  .description dl
+    margin: 5px 0 10px;
+  
+  .description dt
+    width: 10%;
+
+  .description dd
+    width: 70%;
+
+= content_for 'content-header' do
+  | マニュアル
+
+- breadcrumb :admin_manual_path, @manual
+
+.col-md-12
+  .card.card-primary.card-outline
+    .card-header
+      .row
+        .col-md-9
+          .box.box-primary
+            .description
+              dl.d-flex.align-items-center
+                dt 
+                  | 編集中：
+                dd.h4 
+                  = @manual.title
+            .box-body.table-responsive.no-padding
+              table.table.table-hover style="table-layout:fixed;width:100%;"
+                thead
+                  tr
+                    th style="width:10%;" = Sentence.human_attribute_name(:id)
+                    th style="width:70%;" = Sentence.human_attribute_name(:content)
+                    th style="width:10%;"
+                    th style="width:10%;"
+                tbody
+                  - @sentences.each do |sentence|
+                    tr
+                      td = sentence.id
+                      td = sentence.content
+                      td
+                        = link_to '編集', edit_admin_manual_sentence_path(sentence)
+                      td
+                        = link_to admin_manual_sentence_path(sentence), method: :delete, data: { confirm: "#{sentence.id}を削除してもよろしいですか？" } do
+                          i.fa.fa-trash
+                          '
+                          | 削除
+        .col-md-3
+          .box
+            .box-header
+              h3.box-title 新規作成
+              = form_with(model:[:admin, @manual, @sentence], method: :post) do |f|
+                .box-body
+                  .FlexTextarea
+                    .FlexTextarea__dummy, aria-hidden: true
+                    #FlexTextarea
+                      = f.text_area :content , class: 'FlexTextarea__textarea'
+                      = f.hidden_field :manual_id, value: @manual.id
+                .box-footer
+                  = f.button :submit, class: %w[btn btn-primary]
+
+javascript:
+  function flexTextarea(el) {
+    const dummy = el.querySelector('.FlexTextarea__dummy')
+    el.querySelector('.FlexTextarea__textarea').addEventListener('input', e => {
+      dummy.textContent = e.target.value + '\u200b'
+    })
+  }
+
+  document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)

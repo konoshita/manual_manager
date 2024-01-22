@@ -2,14 +2,20 @@ class Admin::UsersController < Admin::BaseController
     before_action :set_user, only: %i[show edit update withdrawal]
     
     def index
+        authorize(User)
         @users = User.all
     end
     
-    def show; end
+    def show
+        authorize(User)
+    end
 
-    def edit; end
+    def edit
+        authorize(User)
+    end
 
     def update
+        authorize(User)
         if @user.update(user_params)
             redirect_to admin_user_path(@user), success: t('defaults.message.updated', item: User.model_name.human)
         else

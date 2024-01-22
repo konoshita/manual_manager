@@ -1,0 +1,26 @@
+<tr>
+  <td>
+    <%= manual.id %>
+  </td>
+  <td>
+    <%= manual.title %>
+  </td>
+  <td>
+    <%= manual.user.name %>
+  </td>
+  <td>
+    <%= manual.category.name %>
+  </td>
+  <td>
+    <%= l manual.created_at, format: :short %>
+  </td>
+  <td>
+    <%= link_to t('defaults.show'), admin_manual_path(manual) %>
+  </td>
+  <td>
+    <%= link_to t('defaults.edit'), edit_admin_manual_path(manual) %>
+  </td>
+  <td>
+    <%= link_to t('defaults.destroy'), admin_manual_path(manual) , method: :delete, data: { confirm: "#{manual.title}を削除してもよろしいですか？" } %>
+  </td>
+</tr>

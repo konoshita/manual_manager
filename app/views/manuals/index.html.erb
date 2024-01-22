@@ -1,23 +1,14 @@
-<h1>Manuals</h1>
-<table class="design10">
- <tr>
-  <th>A</th>
-  <th>B</th>
-  <th>C</th>
-  </tr>
- <tr>
-  <td>D</td>
-  <td>E</td>
-  <td>F</td>
- </tr>
- <tr>
-  <td>G</td>
-  <td>H</td>
-  <td>I</td>
- </tr>
- <tr>
-  <td>J</td>
-  <td>K</td>
-  <td>L</td>
- </tr>
-</table>
+<% content_for(:title, t('.title')) %>
+  <h1><%= t('.title') %></h1>
+<% breadcrumb :manuals_path %>
+    <div class="card-header">
+    <!-- 掲示板一覧 -->
+    <div class="container text-center">
+      <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+        <% if @manuals.present? %>
+          <%= render @manuals %>
+        <% else %>
+          <%= t('.no_result') %>
+        <% end %>
+      </div>
+    </div>
