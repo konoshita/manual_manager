@@ -9,7 +9,10 @@ class Admin::ManualsController < Admin::BaseController
     @manual = Manual.new
   end
 
-  def show; end
+  def show
+    @sentence = Sentence.new
+    @sentences = @manual.sentences  #投稿詳細に関連付けてあるコメントを全取得
+  end
 
   def edit; end
 
