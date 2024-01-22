@@ -8,7 +8,10 @@ class ManualsController < ApplicationController
     @manual = Manual.new
   end
 
-  def show; end
+  def show
+    @sentence = Sentence.new
+    @sentences = @manual.sentences
+  end
  
 
   private

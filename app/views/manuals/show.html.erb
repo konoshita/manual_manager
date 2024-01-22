@@ -1,28 +1,72 @@
+<style>
+ul.timeline {
+	list-style-type: none;
+	position: relative;
+}
+ul.timeline:before {
+	content: ' ';
+	background: #d4d9df;
+	display: inline-block;
+	position: absolute;
+	left: 29px;
+	width: 2px;
+	height: 100%;
+	z-index: 400;
+}
+ul.timeline > li {
+	margin: 20px 0;
+	padding-left: 20px;
+}
+ul.timeline > li:before {
+	content: ' ';
+	background: white;
+	display: inline-block;
+	position: absolute;
+	border-radius: 50%;
+	border: 3px solid #22c0e8;
+	left: 20px;
+	width: 20px;
+	height: 20px;
+	z-index: 400;
+}
+.timeline li{
+  word-break: break-word;
+}
+.timeline h5 {
+  font-size : 1rem;
+  color :#22c0e8;
+  margin: 10px 10px 10px 10px;
+  border-bottom: 3px solid #22c0e8;
+  padding: 5px;
+  
+}
+
+.timeline p {
+  font-size : 2rem;
+}
+
+
+</style>
+
 <% content_for(:title, t('.title')) %>
 <% breadcrumb :manual_path, @manual %>
 <div class="container">
   <div class="row">
-  <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
-      <div class="text-right mb-3">
-      </div>
-      <table class="table table-bordered bg-white">
-        <tr>
-          <th scope="row"><%= Manual.human_attribute_name(:id) %></th>
-          <td><%= @manual.id %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= Manual.human_attribute_name(:title) %></th>
-          <td><%= @manual.title %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= Manual.human_attribute_name(:user_id) %></th>
-          <td><%= @manual.user.name %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= Manual.human_attribute_name(:created_at) %></th>
-          <td><%= @manual.created_at %></td>
-        </tr>
-      </table>
+    <div class="col-md-10 offset-md-1">
+    
+      <h4><%= @manual.title %></h4>
+        <% if @manual.sentences.empty? %>
+          <p>coming soon</p>
+        <% else %>
+          <ul class="timeline">
+            <% @sentences.each_with_index do |sentence, i| %>
+              <li>
+                <h5><%= "STEP#{(i + 1)}"%></h5>
+                <p><%= sentence.content %></p>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
     </div>
   </div>
 </div>

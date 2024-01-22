@@ -2,46 +2,45 @@
 
 <% breadcrumb :admin_manuals %>
 <div class="col-md-12">
-<div class="card card-primary card-outline">
+  <div class="card card-primary card-outline">
     <div class="card-header">
-<div class="container mb-5 pt-2">
-  <!-- /.row -->
-  <div class="row">
-    <div class="col-12">
-      <div class="box box-primary">
-        
-        <!-- /.card-header -->
-        <div class="box-body table-responsive no-padding" style="height: 90vh;">
-          <table class="table table-hover table-head-fixed text-nowrap">
-          <thead>
-          <tr>
-            <th scope="col"><%= Manual.human_attribute_name(:id) %></th>
-            <th scope="col"><%= Manual.human_attribute_name(:title) %></th>
-            <th scope="col"><%= Manual.human_attribute_name(:user_id) %></th>
-            <th scope="col"><%= Category.human_attribute_name(:name) %></th>
-            <th scope="col"><%= Manual.human_attribute_name(:created_at) %></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% if @manuals.present? %>
-            <%= render @manuals %>
-          <% else %>
-            <p><%= t('.no_result') %></p>
-          <% end %>
-          </tbody>
-          </table>
+      <div class="container mb-5 pt-2">
+        <div class="row">
+          <div class="col-12">
+            <div class="box box-primary">
+              <div class="box-body table-responsive no-padding" style="height: 90vh;">
+                <table class="table table-hover table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th scope="col"><%= Manual.human_attribute_name(:id) %></th>
+                      <th scope="col"><%= Manual.human_attribute_name(:title) %></th>
+                      <th scope="col"><%= Manual.human_attribute_name(:user_id) %></th>
+                      <th scope="col"><%= Category.human_attribute_name(:name) %></th>
+                      <th scope="col"><%= Manual.human_attribute_name(:created_at) %></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% if @manuals.present? %>
+                      <%= render @manuals %>
+                    <% else %>
+                      <p><%= t('.no_result') %></p>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.card-body -->
       </div>
-      <!-- /.card -->
     </div>
     <div class="row">
-    <div class="col-md-12">
-      <!-- ページネーション -->
+      <div class="col-md-12">
+        <!-- ページネーション -->
       
+      </div>
     </div>
   </div>
-  </div>
   <!-- /.row -->
+</div>
