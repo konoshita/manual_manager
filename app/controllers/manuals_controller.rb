@@ -2,7 +2,7 @@ class ManualsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_manual, only: %i[ show ]
   def index
-    @manuals = Manual.all.includes(:user).order(created_at: :desc)
+    @manuals = Manual.all.order(created_at: :desc)
   end
   def new
     @manual = Manual.new

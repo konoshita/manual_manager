@@ -3,7 +3,8 @@ ja:
     models:
       user: 'ユーザー'
       manual: 'マニュアル'
-      categorie: 'カテゴリー'
+      category: 'カテゴリー'
+      sentence: '内容'
     successful:
       messages:
         created: "%{model}に1件登録されました。"
@@ -21,7 +22,10 @@ ja:
         categories_id: 'カテゴリー'
       categorie:
         name: 'カテゴリー'
-      
+      sentence:
+        subtitle: '小見出し'
+        content: '内容'
+        sentence_image: '画像'    
   enums:
       user:
         role:
