@@ -1,4 +1,31 @@
-<div class="col">
-<%= link_to category_manuals_path(category) do %>
-  <%= link_to category.name, category_manuals_path(category) ,class: "card  mb-3 p-4"%></div>
-<% end %>
+<style>
+.box{
+    padding:60px 0px;
+}
+.box-part{
+  margin: 20px auto;
+  padding: 50px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: #fff;
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+     color:#4183D7;
+}
+</style>
+  <div class="col">
+  
+  <%= link_to category_manuals_path(category) do %>
+    <div class="box-part text-center">
+        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+      <div class="title">
+        <h4><%= category.name %></h4>
+      </div>            
+      <a href="#">Learn More</a> 
+    </div>
+    <% end %>
+  </div>

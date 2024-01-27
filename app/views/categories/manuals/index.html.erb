@@ -1,10 +1,28 @@
-<% content_for(:title, t('.title')) %>
-<% breadcrumb :category_manuals_path, @categories %>
-<% if @categories.manuals.nil? %>
-  <%= t('.no_result') %>
-<% else %>
-  <%= @categories.name %><br />
-    <% @categories.manuals.each do |manual| %>
-      <%= link_to manual.title, manual_path(manual) %><br />
-    <% end %>
-<% end %>
+<style>
+.box-design1 {
+	margin: 20px 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+</style>
+<div class="col">
+  <h1><%= @categories.name %></h1>
+  <% breadcrumb :manuals_path %>
+    <!-- 掲示板一覧 -->
+      <div class="row row-cols-1 mb-3">
+        <% @categories.manuals.each do |manual| %>
+          <%= link_to manual_path(manual) do %>
+	        <div class="card box-design1">
+            <div class="row g-0 ">
+              <div class="col-md-4 mb-3">
+                <p><% manual.category.name %></p>
+              </div>
+              <div class="col-md-8">
+                <%= manual.title %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+</div>

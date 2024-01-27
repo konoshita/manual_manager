@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   before_action :configure_permitted_parameters, if: :devise_controller?
+  layout :layout_by_resource
 
   protected
 
@@ -13,5 +14,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :email, :name, :password])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :role,])
     devise_parameter_sanitizer.permit(:account_update, keys: [:role, :email, :name, :password])
+  end
+
+  private
+
+  def layout_by_resource
+    if devise_controller?
+      'devise'
+    else
+      'application'
+    end
   end
 end
