@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <%= quiz.id %>
+  </td>
+  <td>
+    <%= quiz.title %>
+  </td>
+  <td>
+    <%= l quiz.created_at, format: :short %>
+  </td>
+  <td>
+    <%= link_to t('defaults.show'), admin_quiz_path(quiz) %>
+  </td>
+  <td>
+    <%= link_to t('defaults.edit'), edit_admin_quiz_path(quiz) %>
+  </td>
+  <td>
+    <%= link_to t('defaults.destroy'), admin_quiz_path(quiz) , method: :delete, data: { confirm: "#{quiz.title}を削除してもよろしいですか？" } %>
+  </td>
+</tr>

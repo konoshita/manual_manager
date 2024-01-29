@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     resources :manuals, only: %i[index new show create edit update destroy] do
       resources :sentences, only: %i[create edit update destroy ] 
     end
+    resources :quizzes, only: %i[index new show create edit update destroy] do
+      resources :questions, only: %i[create edit update destroy ] do
+        resources :choices, only: %i[create edit update destroy ]
+      end
+    end
     resources :categories, only: %i[index new create edit update destroy]
     patch "withdrawal/:id" => "users#withdrawal", as: "withdrawal"
   end

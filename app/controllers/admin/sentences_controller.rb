@@ -18,7 +18,7 @@ class Admin::SentencesController < Admin::BaseController
   def update
     @sentence.assign_attributes(sentence_params)
       if @sentence.update(sentence_params)
-          redirect_to admin_sentence_path(@sentence), success: t('defaults.message.updated', item: User.model_name.human)
+          redirect_to admin_manual_path(@manual)
       else
           flash.now[:danger] = t('defaults.message.not_updated', item: User.model_name.human)
           render :edit
