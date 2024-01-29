@@ -39,6 +39,6 @@ class Admin::SentencesController < Admin::BaseController
   end
 
   def sentence_params
-    params.require(:sentence).permit(:content, :manual_id)  #formにてpost_idパラメータを送信して、コメントへpost_idを格納するようにする必要がある。
+    params.require(:sentence).permit(:subtitle, :content, :manual_id, :sentence_image, :sentence_image_cache)  #formにてpost_idパラメータを送信して、コメントへpost_idを格納するようにする必要がある。
   end
 end

@@ -67,15 +67,23 @@ sass:
               table.table.table-hover style="table-layout:fixed;width:100%;"
                 thead
                   tr
-                    th style="width:10%;" = Sentence.human_attribute_name(:id)
+                    th style="width:5%;" = Sentence.human_attribute_name(:id)
                     th style="width:70%;" = Sentence.human_attribute_name(:content)
                     th style="width:10%;"
                     th style="width:10%;"
                 tbody
-                  - @sentences.each do |sentence|
+                  - @sentences.each_with_index do |sentence, i|
                     tr
-                      td = sentence.id
-                      td = sentence.content
+                      td #{(i + 1)}
+                      td 
+                        |
+                        = sentence.subtitle
+                        br
+                        = safe_join(sentence.content.split("\n"),tag(:br))
+                        br
+                        - if sentence.sentence_image.file.nil?
+                        - else
+                          = image_tag sentence.sentence_image.url
                       td
                         = link_to '編集', edit_admin_manual_sentence_path(sentence)
                       td
@@ -88,6 +96,13 @@ sass:
             .box-header
               h3.box-title 新規作成
               = form_with(model:[:admin, @manual, @sentence], method: :post) do |f|
+                .form-group
+                  = f.label :subtitle
+                  = f.text_field :subtitle
+                .form-group
+                  = f.label :sentence_image
+                  = f.file_field :sentence_image, class: 'form-control mb-3', accept: 'image/*', onchange: 'previewImage(preview)'
+                  = f.hidden_field :sentence_image_cache
                 .box-body
                   .FlexTextarea
                     .FlexTextarea__dummy, aria-hidden: true
