@@ -51,3 +51,12 @@ ja:
         title: 'マニュアル詳細'
       edit:
         title: 'マニュアル編集'
+    categories:
+      index:
+        title: 'カテゴリー一覧'
+      new:
+        title: '新規登録'
+      show:
+        title: '詳細'
+      edit:
+        title: '編集'

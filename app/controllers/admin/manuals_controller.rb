@@ -31,7 +31,7 @@ class Admin::ManualsController < Admin::BaseController
     authorize(Manual)
     @manual = current_user.manuals.build(manual_params)
     if @manual.save
-      redirect_to admin_manuals_path, success: t('defaults.message.updated', item: User.model_name.human)
+      redirect_to admin_manual_path(@manual), success: t('defaults.message.updated', item: User.model_name.human)
     else
       flash[:danger] = "記事の作成が失敗しました。もう一度試してください。"
       render :new
