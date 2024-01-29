@@ -60,3 +60,30 @@ ja:
         title: '詳細'
       edit:
         title: '編集'
+    quizzes:
+      index:
+        title: 'クイズ一覧'
+      new:
+        title: '新規登録'
+      show:
+        title: '詳細'
+      edit:
+        title: '編集'
+    questions:
+      index:
+        title: '質問一覧'
+      new:
+        title: '新規登録'
+      show:
+        title: '詳細'
+      edit:
+        title: '編集'
+    choices:
+      index:
+        title: '選択肢一覧'
+      new:
+        title: '新規登録'
+      show:
+        title: '詳細'
+      edit:
+        title: '編集'

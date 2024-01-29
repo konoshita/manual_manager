@@ -1,0 +1,28 @@
+<% content_for(:title, t('.title')) %>
+
+<% breadcrumb :edit_admin_quiz, @quiz %>
+<div class="col-md-12">
+<div class="card card-primary card-outline">
+    <div class="card-header">
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-header">
+          <i class="bi bi-calendar me-2"></i>
+          <span>クイズ編集</span>
+        </div>
+        <div class="card-body">
+        <%= form_with url: admin_quiz_path, model: @quiz, local: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="mb-3">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+          <%= f.submit '登録', class: 'btn btn-primary' %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
