@@ -3,8 +3,10 @@
 <% breadcrumb :manuals_path %>
     <!-- 掲示板一覧 -->
       <div class="row row-cols-1 mb-3">
+      <ul class="fusen">
         <% if @manuals.present? %>
           <%= render @manuals %>
         <% else %>
           <%= t('.no_result') %>
         <% end %>
+      </ul>
