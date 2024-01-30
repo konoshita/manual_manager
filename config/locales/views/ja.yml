@@ -20,16 +20,18 @@ ja:
       password_forget: 'パスワードをお忘れの方はこちら'
   manuals:
     index:
-      title: 'マニュアル一覧'
+      title: 'マニュアル検索'
     new:
       title: 'マニュアル作成'
     show:
       title: 'マニュアル詳細'
     edit:
       title: 'マニュアル編集'
-  profiles:
+  categories:
+    index:
+      title: 'カテゴリー'
     show:
-      title: 'プロフィール'
+      title: 'カテゴリー詳細'
   admin:
     user_sessions:
       new:

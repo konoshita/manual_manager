@@ -1,0 +1,247 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+/* body */
+body {
+	 color: #5e5e5e;
+	 font: 400 87.5%/1.2em 'Open Sans', sans-serif;
+	 line-height: normal;
+}
+#main {
+	background: #fafafa;
+}
+
+a {
+	text-decoration: none;
+	color: #5e5e5e;
+	 font: 400 87.5%/1.2em 'Open Sans', sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+// リセット
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+h3 {
+	font-size: 131%;
+	margin-bottom: .7em;
+}
+
+/* z-index */
+.footer {
+  background: #999;
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+// ヘッダー
+#global-head {
+	position: fixed;
+	color: #f3cc3c;
+	width: 100%;
+	padding: 10px 30px;
+	background: #fff;
+	display: -webkit-flex;
+	display: flex;
+	z-index: 999;
+}
+// サイドバー
+#sidebar {
+	padding-top: 60px;
+	width: 260px;
+	height: 100%;
+	position: fixed;
+	color: #5e5e5e;
+	background: #f7df84;
+}
+
+#brand-logo {
+	-webkit-transition: .35s ease-in-out;
+	-moz-transition: .35s ease-in-out;
+	transition: .35s ease-in-out;
+}
+
+#global-nav ul {
+	list-style: none;
+	margin-left: 0;
+}
+#global-nav > ul > li {
+	position: relative;
+}
+
+#global-nav a,.sub-menu-change {
+	color: #5e5e5e;
+	text-decoration: none;
+	display: block;
+	padding: 15px;
+	-moz-transition: color .3s linear;
+	-webkit-transition: color .3s linear;
+	transition: color .3s linear;
+}
+#global-nav .sub-menu.is-active > a,
+#global-nav a:hover, .sub-menu-change:hover {
+	color: orange;
+}
+/* nav-toggle */
+#nav-toggle {
+	position: fixed;
+	top: 15px;
+	left: 15px;
+	height: 32px;
+}
+#nav-toggle > div {
+	position: relative;
+	width: 32px;
+}
+#nav-toggle span {
+	width: 100%;
+	height: 2px;
+	left: 0;
+	display: block;
+	background: #5e5e5e;
+	position: absolute;
+	-webkit-transition: .35s ease-in-out;
+	-moz-transition: .35s ease-in-out;
+	transition: .35s ease-in-out;
+}
+
+/* #nav-toggle close */
+#nav-toggle span:nth-child(1) {
+	top: 0;
+	/*
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+	*/
+}
+#nav-toggle span:nth-child(2) {
+	top: 11px;
+	/*
+	width: 0;
+	left: 50%;
+	*/
+}
+#nav-toggle span:nth-child(3) {
+	top: 22px;
+	/*
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	*/
+}
+#nav-toggle {
+	z-index: 1000;
+}
+#container {
+	z-index: 900;
+}
+/* close */
+.close #container {
+	margin-left: 0;
+}
+.close #brand-logo {
+	margin-left: 50px;
+}
+.close #nav-toggle span {
+	background: #5e5e5e;
+}
+
+// マニュアルindex @manualのデザイン
+.box-design1 {
+	margin: 20px 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+// マニュアル show
+.sentence_wrapper{
+	padding: 5px;
+}
+.sentence_box {
+	// background-color: #fff;
+	margin-bottom: 60px;
+}
+// カテゴリー一覧
+.box{
+	padding:60px 0px;
+}
+.box-part{
+margin: 0px auto;
+padding: 60px 20px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+background: #fff;
+}
+.text{
+	margin:20px 0px;
+}
+
+.fa{
+	 color:#4183D7;
+}
+// 付箋ふう カテゴリー>マニュアル一覧
+ul.fusen{
+  padding: 0;
+  position: relative;
+}
+
+ul.fusen li{
+  color: black;
+  border-left: solid 8px orange;/*左側の線*/
+  background: white;/*背景色*/
+  margin-bottom: 10px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 1em;
+  list-style-type: none!important;
+  font-size: 1.2rem;
+}
+
+// dl dd横並び
+dl {
+  margin: 0px;
+  // border-bottom: 2pt dashed #ccc;
+  padding: 5px;
+  display: flex;
+}
+dt {
+  font-size: 1.4rem;
+  width: 7%;
+}
+dd {
+  width: 90%;
+  font-size: 1.4rem;
+  color: #010101;
+}
+
+.sentence_wrapper p {
+	font-size: 1.2rem;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 900px) {
+	#container {
+		margin-left: 0;
+	}
+	#brand-logo {
+		margin-left: 50px;
+	}
+	#nav-toggle span {
+		background: #5e5e5e;
+	}
+	.close #nav-toggle span {
+		background: #5e5e5e;
+	}
+	#sidebar {
+		left: -260px;
+		z-index: 910;
+		-webkit-transition: .35s ease-in-out;
+		-moz-transition: .35s ease-in-out;
+		transition: .35s ease-in-out;
+	}
+	.close #sidebar {
+		left: 0;
+	}
+}

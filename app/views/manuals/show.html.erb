@@ -1,121 +1,35 @@
-<style>
-.flow_design {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-ul.timeline {
-	padding-left: 0;
-}
-
-.timeline li{
-  word-break: break-word;
-  list-style-type: none;
-  border: 2px solid #4D9BC1;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: #fff;
-}
-.timeline > li:not(:last-child) {
-  margin-bottom: 40px;
-  position: relative;
-}
-.timeline > li:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  border: 20px solid transparent;
-  width: 0;
-  height: 0;
-  bottom: -53px;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  border-top-color: #4D9BC1;
-}
-
-.timeline p {
-  font-size : 1.5rem;
-  padding: 0 3%;
-}
-.timeline dl {
-  margin: 5px 0 10px;
-  color :#22c0e8;
-  margin: 10px 10px 10px 10px;
-  border-bottom: 2pt dashed #ccc;
-  padding: 5px;
-  display: flex;
-}
-.timeline dt {
-  font-size: 1.4rem;
-  width: 15%;
-}
-.timeline dd {
-  width: 70%;
-  font-size: 1.4rem;
-  color: #010101;
-}
-
-.center_box h4 {
-  font-size: 2.5rem;
-  letter-spacing: 0.1em;
-  padding: 10px 0 20px 0;
-  color: #4D9BC1;
-  display: inline-block;
-  text-align: left;
-}
-h5 {
-  font-size: 1.2rem;
-  letter-spacing: 0.1em;
-  padding: 10px 0 20px 0;
-  color: #4D9BC1;
-}
-
-.ttl_center1 {
-  font-weight: bold;
-  padding-bottom: 0.5em;
-  text-align: center;
-  position: relative;
-}
-.ttl_center1::after {
-  content: '';
-  background-color: #4c9ac0;
-  width: 2em;
-  height: 5px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-}
-</style>
 
 <% content_for(:title, t('.title')) %>
 <% breadcrumb :manual_path, @manual %>
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <div class="center_box text-center">
-        <h4  class="ttl_center1"><%= @manual.title %></h4></div>
-        <h5 class="text-center">#<%= @manual.category.name %></h5>
+        <%= link_to @manual.category.name, categories_path, class:"h5 mb-3"%>
+        <ul class="fusen">
+          <li><%= @manual.title %></li>
+        </ul>
         <% if @manual.sentences.empty? %>
           <p>coming soon</p>
         <% else %>
-        <div class="flow_design">
-          <ul class="timeline">
-            <% @sentences.each_with_index do |sentence, i| %>
-              <li>
-                <dl><dt><%= "#{(i + 1)}"%> </dt><dd class="fw-bold"><%= sentence.subtitle %></dd></dl>
-                <p><%= safe_join(sentence.content.split("\n"),tag(:br)) %></p>
+          <% @sentences.each_with_index do |sentence, i| %>
+            <div class="sentence_wrapper">
+            <dl>
+              <dt><%= "#{(i + 1)}"%></dt>
+              <dd class="fw-bold"><%= sentence.subtitle %></dd>
+            </dl>
+            <div class="sentence_box">
+            <dl>
+              <dt></dt>
+              <dd>
+              <p><%= safe_join(sentence.content.split("\n"),tag(:br)) %></p>
                 <% if !sentence.sentence_image.file.nil? %>
-                  <%= image_tag sentence.sentence_image.url %>
+                  <%= image_tag sentence.sentence_image.url ,class: "img-responsive"%>
                 <% end %>
-              </li>
-            <% end %>
-          </ul>
+              </dd>
+            </div>
+            </div>
+          <% end %>
         <% end %>
-      </div>
     </div>
   </div>
 </div>

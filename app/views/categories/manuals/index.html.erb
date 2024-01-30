@@ -1,28 +1,24 @@
-<style>
-.box-design1 {
-	margin: 20px 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-</style>
-<div class="col">
-  <h1><%= @categories.name %></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+  <h4><%= @categories.name %></h4>
   <% breadcrumb :manuals_path %>
-    <!-- 掲示板一覧 -->
+    <!-- 各カテゴリー内 マニュアル一覧 -->
       <div class="row row-cols-1 mb-3">
-        <% @categories.manuals.each do |manual| %>
-          <%= link_to manual_path(manual) do %>
-	        <div class="card box-design1">
-            <div class="row g-0 ">
-              <div class="col-md-4 mb-3">
-                <p><% manual.category.name %></p>
+        <ul class="fusen">
+          <% @categories.manuals.each do |manual| %>
+          <li>
+            <%= link_to manual_path(manual) do %>
+              <div class="row g-0 ">  
+                <div class="col">
+                  <%= manual.title %>
+                </div>
               </div>
-              <div class="col-md-8">
-                <%= manual.title %>
-              </div>
-            </div>
-          </div>
+            <% end %>
+          </li>
           <% end %>
-        <% end %>
-</div>
+        </ul>
+      </div>
+    <!-- /掲示板一覧 -->
+      </div></div></div>

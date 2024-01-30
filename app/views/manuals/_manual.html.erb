@@ -1,24 +1,6 @@
 
-<style>
-.box-design1 {
-	margin: 20px 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-</style>
-<div class="col">
 <%= link_to manual_path(manual) do %>
-	
-	<div class="card box-design1">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <p><%= manual.category.name%></p>
-    </div>
-    <div class="col-md-8">
+    <li>
       <%= manual.title %>
-    </div>
-  </div>
-</div>
+    </li>
 <% end %>
-</div>
