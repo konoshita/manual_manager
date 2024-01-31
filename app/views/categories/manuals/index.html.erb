@@ -1,24 +1,32 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-  <h4><%= @categories.name %></h4>
-  <% breadcrumb :manuals_path %>
-    <!-- 各カテゴリー内 マニュアル一覧 -->
-      <div class="row row-cols-1 mb-3">
-        <ul class="fusen">
-          <% @categories.manuals.each do |manual| %>
-          <li>
-            <%= link_to manual_path(manual) do %>
-              <div class="row g-0 ">  
-                <div class="col">
-                  <%= manual.title %>
+<% content_for(:title, t('.title')) %>
+<% breadcrumb :category_manuals_path, @categories %>
+    <!-- 掲示板一覧 -->
+    <div class="container">
+      <div class="section-block-grey">
+        <div class="row mt-60">
+          <div class="col-md-10 offset-md-1">
+            <div class="serv-section-3">
+              <div class="serv-section-3-icon"><i class="fa fa-check" aria-hidden="true"></i></div>
+                <div class="serv-section-desc">
+                  <h4><%= @categories.name %></h4>
+                      <h5>Each Title</h5>
                 </div>
+                <div class="section-heading-line-left"></div>
+            </div>
+              <!-- 各カテゴリー内 マニュアル一覧 -->
+              <div class="row row-cols-1 mb-3">
+                <% @categories.manuals.each do |manual| %>
+                  <%= link_to manual_path(manual) do %>
+                    <div class="row g-0">  
+                      <div class="col btnarrow5">
+                      <%= manual.title %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %> 
               </div>
-            <% end %>
-          </li>
-          <% end %>
-        </ul>
+              <!-- /掲示板一覧 -->
+            </div>
+          </div>
+        </div>
       </div>
-    <!-- /掲示板一覧 -->
-      </div></div></div>

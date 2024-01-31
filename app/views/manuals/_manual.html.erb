@@ -1,6 +1,17 @@
 
-<%= link_to manual_path(manual) do %>
-    <li>
-      <%= manual.title %>
-    </li>
-<% end %>
+<div class="col-md-10 offset-md-1">
+  <div class="col-md-12">
+    <!-- 各カテゴリー内 マニュアル一覧 -->
+    <div class="row row-cols-1 mb-3">
+      <%= link_to manual_path(manual) do %>
+        <div class="row g-0">  
+          <div class="col btnarrow5">
+            <%= manual.title %>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+    <!-- /掲示板一覧 -->
+  </div>
+</div>
+

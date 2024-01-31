@@ -89,22 +89,22 @@ end
 
 # ノーマル
 
-crumb :manuals_path do
-  link '<i class="fa fa-dashboard"></i> Home'.html_safe, manuals_path
+crumb :categories_path do
+  link '<i class="fa fa-dashboard"></i> Home'.html_safe, categories_path
 end
 
 
 crumb :manual_path do |manual|
-  link 'マニュアル詳細', manual_path(manual.id)
-  parent :manuals_path
+  link '内容', manual_path(manual.id)
+  parent :categories_path
 end
 
-crumb :categories_path do 
-  link 'カテゴリー', categories_path
-  parent :manuals_path
+crumb :manuals_path do 
+  link 'マニュアル検索', manuals_path
+  parent :categories_path
 end
 
 crumb :category_manuals_path do |category|
-  link 'マニュアル', category_manuals_path(category.id)
-  parent :manuals_path
+  link 'タイトル', category_manuals_path(category.id)
+  parent :categories_path
 end
