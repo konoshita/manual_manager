@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   resources :categories, only: :index do
     resources :manuals, only: :index, module: :categories
   end
-  root "manuals#index"
+  root "categories#index"
 
 end

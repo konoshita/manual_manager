@@ -29,7 +29,7 @@ ja:
       title: 'マニュアル編集'
   categories:
     index:
-      title: 'カテゴリー'
+      title: 'HOME'
     show:
       title: 'カテゴリー詳細'
   admin:

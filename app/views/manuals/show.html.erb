@@ -1,35 +1,43 @@
 
 <% content_for(:title, t('.title')) %>
-<% breadcrumb :manual_path, @manual %>
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-        <%= link_to @manual.category.name, categories_path, class:"h5 mb-3"%>
-        <ul class="fusen">
-          <li><%= @manual.title %></li>
-        </ul>
-        <% if @manual.sentences.empty? %>
-          <p>coming soon</p>
-        <% else %>
-          <% @sentences.each_with_index do |sentence, i| %>
-            <div class="sentence_wrapper">
-            <dl>
-              <dt><%= "#{(i + 1)}"%></dt>
-              <dd class="fw-bold"><%= sentence.subtitle %></dd>
-            </dl>
-            <div class="sentence_box">
-            <dl>
-              <dt></dt>
-              <dd>
-              <p><%= safe_join(sentence.content.split("\n"),tag(:br)) %></p>
-                <% if !sentence.sentence_image.file.nil? %>
-                  <%= image_tag sentence.sentence_image.url ,class: "img-responsive"%>
-                <% end %>
-              </dd>
+        <%= link_to '< 戻る', :back, class:"h5 mb-3"%>
+            <div class="serv-section-3">
+              <div class="serv-section-3-icon"><i class="fa fa-check" aria-hidden="true"></i></div>
+                <div class="serv-section-desc">
+                  <h4><%= @manual.category.name %></h4>
+                      <h5>Detailed Explanation</h5>
+                </div>
+                <div class="section-heading-line-left"></div>
+                  <h1 class="fusen"><%= @manual.title%></h1>
+                    <% if @manual.sentences.empty? %>
+                      <p>coming soon</p>
+                    <% else %>
+                      <% @sentences.each_with_index do |sentence, i| %>
+                        <div class="sentence_wrapper">
+                          <dl>
+                            <dt><%= "#{(i + 1)}"%></dt>
+                            <dd class="fw-bold"><%= sentence.subtitle %></dd>
+                          </dl>
+                          <div class="sentence_box">
+                            <dl>
+                              <dt></dt>
+                              <dd>
+                              <p><%= safe_join(sentence.content.split("\n"),tag(:br)) %></p>
+                                <% if !sentence.sentence_image.file.nil? %>
+                                  <%= image_tag sentence.sentence_image.url ,class: "img-responsive"%>
+                                <% end %>
+                              </dd>
+                            </dl>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                </div>
+              </div>
             </div>
-            </div>
-          <% end %>
-        <% end %>
     </div>
   </div>
 </div>

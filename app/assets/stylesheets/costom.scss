@@ -1,9 +1,13 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 * { margin: 0; padding: 0; box-sizing: border-box; }
  
 /* body */
 body {
 	 color: #5e5e5e;
 	 font: 400 87.5%/1.2em 'Open Sans', sans-serif;
+	 font-size: 20px;
 	 line-height: normal;
 }
 #main {
@@ -17,7 +21,7 @@ a {
 }
 
 h1 {
-	text-align: center;
+	text-align: left;
 }
 
 // リセット
@@ -55,8 +59,8 @@ h3 {
 	width: 260px;
 	height: 100%;
 	position: fixed;
-	color: #5e5e5e;
-	background: #f7df84;
+	color: #f3cc3c;
+	background: #5e5e5e;
 }
 
 #brand-logo {
@@ -74,7 +78,7 @@ h3 {
 }
 
 #global-nav a,.sub-menu-change {
-	color: #5e5e5e;
+	color: #f3cc3c;
 	text-decoration: none;
 	display: block;
 	padding: 15px;
@@ -102,7 +106,7 @@ h3 {
 	height: 2px;
 	left: 0;
 	display: block;
-	background: #5e5e5e;
+	background: #f3cc3c;
 	position: absolute;
 	-webkit-transition: .35s ease-in-out;
 	-moz-transition: .35s ease-in-out;
@@ -147,7 +151,7 @@ h3 {
 	margin-left: 50px;
 }
 .close #nav-toggle span {
-	background: #5e5e5e;
+	background: #f3cc3c;
 }
 
 // マニュアルindex @manualのデザイン
@@ -180,23 +184,32 @@ background: #fff;
 }
 
 .fa{
-	 color:#4183D7;
+	 color:#fff;
 }
 // 付箋ふう カテゴリー>マニュアル一覧
-ul.fusen{
-  padding: 0;
+// .fusen{
+//   border-bottom: solid 5px orange;
+// 	text-align: left;
+// }
+h1.fusen {
   position: relative;
+  padding-left: 70px;
+  color: orange;
+	text-align: left;
+	margin:60px 0;
 }
 
-ul.fusen li{
-  color: black;
-  border-left: solid 8px orange;/*左側の線*/
-  background: white;/*背景色*/
-  margin-bottom: 10px;/*下のバーとの余白*/
-  line-height: 1.5;
-  padding: 1em;
-  list-style-type: none!important;
-  font-size: 1.2rem;
+h1.fusen:before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f058";
+  color: orange;
+  left: 0;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 // dl dd横並び
@@ -209,6 +222,7 @@ dl {
 dt {
   font-size: 1.4rem;
   width: 7%;
+	color: #010101;
 }
 dd {
   width: 90%;
@@ -229,10 +243,10 @@ dd {
 		margin-left: 50px;
 	}
 	#nav-toggle span {
-		background: #5e5e5e;
+		background: #f3cc3c;
 	}
 	.close #nav-toggle span {
-		background: #5e5e5e;
+		background: #f3cc3c;
 	}
 	#sidebar {
 		left: -260px;
@@ -244,4 +258,199 @@ dd {
 	.close #sidebar {
 		left: 0;
 	}
+}
+
+// お試しカテゴリーindex
+.mt-60{
+	margin-top:60px;
+}
+
+.section-block-grey {
+	padding: 90px 0px 90px 0px;
+	background-color: #f9f9f9;
+}
+
+.serv-section-2 {
+	position: relative;
+	border: 1px solid #eee;
+	background: #fff;
+	box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 30px;
+}
+
+.serv-section-2:before {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	z-index: 0;
+	content: " ";
+	width: 120px;
+	height: 120px;
+	background: #f5f5f5;
+	border-bottom-left-radius: 136px;
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+}
+
+.serv-section-2-icon {
+	position: absolute;
+	top: 18px;
+	right: 22px;
+	max-width: 100px;
+	z-index: 1;
+	text-align: center;
+}
+
+.serv-section-2-icon i {
+	color: orange;
+	font-size: 48px;
+	line-height: 65px;
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+}
+
+.serv-section-desc {
+	position: relative;
+}
+
+.serv-section-2 h4 {
+	color: #333;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.serv-section-2 h5 {
+	color: #333;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 1;
+	margin-top: 5px;
+}
+
+.section-heading-line-left {
+	content: '';
+	display: block;
+	width: 100px;
+	height: 3px;
+	background: orange;
+	border-radius: 25%;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.serv-section-2 p {
+	margin-top: 25px;
+	padding-right: 50px;
+}
+
+.serv-section-2:hover .serv-section-2-icon i {
+	color: #fff;
+}
+
+.serv-section-3:before {
+	background: orange;
+}
+.serv-section-3 .serv-section-3-icon i {
+	color: #fff;
+}
+
+.serv-section-2:hover:before {
+	background: orange;
+}
+// category manual indexタイトル
+.serv-section-3 {
+	position: relative;
+	border: 1px solid #eee;
+	background: #fff;
+	box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 30px;
+	color: #fff;
+}
+
+.serv-section-3:before {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	z-index: 0;
+	content: " ";
+	width: 120px;
+	height: 120px;
+	background: orange;
+	border-bottom-left-radius: 136px;
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+}
+
+.serv-section-3-icon {
+	position: absolute;
+	top: 18px;
+	right: 22px;
+	max-width: 100px;
+	z-index: 1;
+	text-align: center;
+}
+
+.serv-section-3-icon i {
+	color: #fff;
+	font-size: 48px;
+	line-height: 65px;
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+}
+
+.serv-section-desc {
+	position: relative;
+}
+
+.serv-section-3 h4 {
+	color: #333;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.serv-section-3 h5 {
+	color: #333;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 1;
+	margin-top: 5px;
+}
+
+.section-heading-line-left {
+	content: '';
+	display: block;
+	width: 100px;
+	height: 3px;
+	background: orange;
+	border-radius: 25%;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.serv-section-3 p {
+	margin-top: 25px;
+	padding-right: 50px;
+}
+
+// お試しmanual title
+.btnarrow5{
+	position: relative;
+	border: 1px solid #eee;
+	background: #fff;
+	box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 30px;
+	padding-left: 30px;
+	color: #333;
+}
+
+.btnarrow5:hover{
+background:#fafafa;
 }
