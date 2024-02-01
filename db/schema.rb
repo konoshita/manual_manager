@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_27_130312) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_01_023430) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_27_130312) do
     t.datetime "updated_at", null: false
     t.string "subtitle"
     t.string "sentence_image"
+    t.integer "position"
     t.index ["manual_id"], name: "index_sentences_on_manual_id"
   end
 
