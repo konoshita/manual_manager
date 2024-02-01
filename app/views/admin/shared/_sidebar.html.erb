@@ -51,6 +51,31 @@
         </li>
       </ul>
     </li>
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>
+         e-lerning
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+      <li class="nav-item">
+      <%= link_to admin_quizzes_path, class: "nav-link" do %>
+            <i class="far fa-circle nav-icon"></i>
+            <p>クイズ一覧</p>
+            <% end %>
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item">
+        <%= link_to new_admin_quiz_path, class: "nav-link" do %>
+            <i class="far fa-circle nav-icon"></i>
+            <p>クイズ作成</p>
+          <% end %>
+        </li>
+      </ul>
+    </li>
         <li class="nav-item">
         <%= link_to admin_users_path ,class: "nav-link" do %>
             <i class="nav-icon far fa-user"></i>

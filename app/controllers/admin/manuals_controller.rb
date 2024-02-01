@@ -11,7 +11,7 @@ class Admin::ManualsController < Admin::BaseController
 
   def show
     @sentence = Sentence.new
-    @sentences = @manual.sentences  #投稿詳細に関連付けてあるコメントを全取得
+    @sentences = @manual.sentences.order(:position)  #投稿詳細に関連付けてあるコメントを全取得
   end
 
   def edit; end

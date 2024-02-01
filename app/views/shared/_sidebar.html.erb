@@ -1,153 +1,3 @@
-<style>
-#global-head {
-	position: fixed;
-	color: #f3cc3c;
-	width: 100%;
-	padding: 10px 30px;
-	background: #fff;
-	display: -webkit-flex;
-	display: flex;
-	z-index: 999;
-}
-
-#sidebar {
-	padding-top: 60px;
-	width: 260px;
-	height: 100%;
-	position: fixed;
-	color: #5e5e5e;
-	background: #f7df84;
-}
-
-#brand-logo {
-	-webkit-transition: .35s ease-in-out;
-	-moz-transition: .35s ease-in-out;
-	transition: .35s ease-in-out;
-}
-
-#global-nav ul {
-	list-style: none;
-	margin-left: 0;
-}
-#global-nav > ul > li {
-	position: relative;
-}
-
-#global-nav a,.sub-menu-change {
-	color: #5e5e5e;
-	text-decoration: none;
-	display: block;
-	padding: 15px;
-	-moz-transition: color .3s linear;
-	-webkit-transition: color .3s linear;
-	transition: color .3s linear;
-}
-#global-nav .sub-menu.is-active > a,
-#global-nav a:hover, .sub-menu-change:hover {
-	color: #fff;
-}
-
-
-/* sub-menu icon */
-#global-nav .sub-menu-head {
-	position: relative;
-}
-
-#global-nav .is-active .sub-menu-head:after {
-	-moz-transform: rotate(135deg);
-	-webkit-transform: rotate(135deg);
-	transform: rotate(135deg);
-}
-
-/* nav-toggle */
-#nav-toggle {
-	position: fixed;
-	top: 15px;
-	left: 15px;
-	height: 32px;
-}
-#nav-toggle > div {
-	position: relative;
-	width: 32px;
-}
-#nav-toggle span {
-	width: 100%;
-	height: 2px;
-	left: 0;
-	display: block;
-	background: #5e5e5e;
-	position: absolute;
-	-webkit-transition: .35s ease-in-out;
-	-moz-transition: .35s ease-in-out;
-	transition: .35s ease-in-out;
-}
-
-/* #nav-toggle close */
-#nav-toggle span:nth-child(1) {
-	top: 0;
-	/*
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	transform: rotate(45deg);
-	*/
-}
-#nav-toggle span:nth-child(2) {
-	top: 11px;
-	/*
-	width: 0;
-	left: 50%;
-	*/
-}
-#nav-toggle span:nth-child(3) {
-	top: 22px;
-	/*
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	*/
-}
-#nav-toggle {
-	z-index: 1000;
-}
-#container {
-	z-index: 900;
-}
-/* close */
-.close #container {
-	margin-left: 0;
-}
-.close #brand-logo {
-	margin-left: 50px;
-}
-.close #nav-toggle span {
-	background: #5e5e5e;
-}
-
-@media screen and (max-width: 900px) {
-	#container {
-		margin-left: 0;
-	}
-	#brand-logo {
-		margin-left: 50px;
-	}
-	#nav-toggle span {
-		background: #5e5e5e;
-	}
-	.close #nav-toggle span {
-		background: #5e5e5e;
-	}
-	#sidebar {
-		left: -260px;
-		z-index: 910;
-		-webkit-transition: .35s ease-in-out;
-		-moz-transition: .35s ease-in-out;
-		transition: .35s ease-in-out;
-	}
-	.close #sidebar {
-		left: 0;
-	}
-}
-</style>
 <div id="nav-toggle">
 	<div>
 		<span></span>
@@ -160,25 +10,17 @@
 		<ul>
 		<li><a href="#"><% if user_signed_in? %>
 		<%= current_user.name =%>
-		<%end%></a></li>
-			<li><%= link_to 'マニュアル一覧', manuals_path %></li>
+		<%end%></a>
+		</li>
 			<li class="sub-menu">
-      <%= link_to 'カテゴリー', categories_path %>
-				<ul class="sub-menu-nav">
-					<li><a href="#">About 1</a></li>
-					<li><a href="#">About 2</a></li>
-				</ul>
+      <%= link_to 'HOME', categories_path %>
 			</li>
-			<li class="sub-menu">
-				<a href="#" class="sub-menu-head">Products</a>
-				<ul class="sub-menu-nav">
-					<li><a href="#">Product 1</a></li>
-					<li><a href="#">Product 2</a></li>
-				</ul>
-			</li>
+			<li><%= link_to '検索', manuals_path %></li>
+			<% if current_user.admin? %>
 			<li class="sub-menu">
 			<%= link_to '管理者パネル', admin_root_path %>
 			</li>
+			<% end %>
 			<li><%= button_to "ログアウト", destroy_user_session_path, class: "sub-menu-change", method: :delete %></li>
 			<li><a href="#">Contact</a></li>
 		</ul>

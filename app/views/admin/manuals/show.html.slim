@@ -69,28 +69,11 @@ sass:
                   tr
                     th style="width:5%;" = Sentence.human_attribute_name(:id)
                     th style="width:70%;" = Sentence.human_attribute_name(:content)
-                    th style="width:10%;"
-                    th style="width:10%;"
-                tbody
-                  - @sentences.each_with_index do |sentence, i|
-                    tr
-                      td #{(i + 1)}
-                      td 
-                        |
-                        = sentence.subtitle
-                        br
-                        = safe_join(sentence.content.split("\n"),tag(:br))
-                        br
-                        - if sentence.sentence_image.file.nil?
-                        - else
-                          = image_tag sentence.sentence_image.url
-                      td
-                        = link_to '編集', edit_admin_manual_sentence_path(sentence)
-                      td
-                        = link_to admin_manual_sentence_path(sentence), method: :delete, data: { confirm: "#{sentence.id}を削除してもよろしいですか？" } do
-                          i.fa.fa-trash
-                          '
-                          | 削除
+                    th style="width:5%;"
+                    th style="width:5%;"
+                    th style="width:5%;"
+                    th style="width:5%;"
+                = render 'sentences', manual: @manual
         .col-md-3
           .box
             .box-header
@@ -108,7 +91,6 @@ sass:
                     .FlexTextarea__dummy, aria-hidden: true
                     #FlexTextarea
                       = f.text_area :content , class: 'FlexTextarea__textarea'
-                      = f.hidden_field :manual_id, value: @manual.id
                 .box-footer
                   = f.button :submit, class: %w[btn btn-primary]
 

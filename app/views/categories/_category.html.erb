@@ -1,31 +1,12 @@
-<style>
-.box{
-    padding:60px 0px;
-}
-.box-part{
-  margin: 20px auto;
-  padding: 50px 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background: #fff;
-}
-.text{
-    margin:20px 0px;
-}
 
-.fa{
-     color:#4183D7;
-}
-</style>
-  <div class="col">
-  
-  <%= link_to category_manuals_path(category) do %>
-    <div class="box-part text-center">
-        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
-      <div class="title">
+<div class="col-md-4 col-sm-12 col-12 g-3">
+<%= link_to category_manuals_path(category) do %>
+<div class="serv-section-2">
+    <div class="serv-section-2-icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+    <div class="serv-section-desc">
         <h4><%= category.name %></h4>
-      </div>            
-      <a href="#">Learn More</a> 
-    </div>
-    <% end %>
-  </div>
+        <h5>Show More</h5> </div>
+    <div class="section-heading-line-left"></div>
+</div>
+<% end %>
+</div>

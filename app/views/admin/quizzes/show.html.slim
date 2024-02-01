@@ -1,0 +1,53 @@
+sass:
+  .description dl
+    margin: 5px 0 10px;
+  
+  .description dt
+    width: 10%;
+
+  .description dd
+    width: 70%;
+
+= content_for 'content-header' do
+  | クイズ
+
+- breadcrumb :admin_quiz_path, @quiz
+
+.col-md-12
+  .card.card-primary.card-outline
+    .card-header
+      .row
+        .col-md-7
+          .box.box-primary
+            .description
+              dl.d-flex.align-items-center
+                dt 
+                  | 編集中：
+                dd.h4 
+                  = @quiz.title
+            .box-body.table-responsive.no-padding
+              table.table.table-hover style="table-layout:fixed;width:100%;"
+                thead
+                  tr
+                    th style="width:5%;" = Question.human_attribute_name(:id)
+                    th style="width:70%;" = Question.human_attribute_name(:body)
+                    th style="width:10%;"
+                    th style="width:10%;"
+                tbody
+                  - @questions.each_with_index do |question, i|
+                    tr
+                      td #{(i + 1)}
+                      td = question.body
+                      td
+                        = link_to '編集', edit_admin_quiz_question_path(question), method: :get
+                      td
+                        = link_to admin_quiz_question_path(question), method: :delete, data: { confirm: "#{question.id}を削除してもよろしいですか？" } do
+                          i.fa.fa-trash
+                          '
+                          | 削除
+        .col-md-5
+          .box
+            .box-header
+              h3.box-title 新規作成
+              = form_with(model:[:admin, @quiz, @question], method: :post) do |f|
+                = render :partial => 'question_form', :locals => {:f => f} 
