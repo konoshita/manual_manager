@@ -2,7 +2,8 @@ class ManualsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_manual, only: %i[ show ]
   def index
-    @manuals = Manual.all.order(created_at: :desc)
+    @q = Manual.ransack(params[:q])
+    @manuals = @q.result(distinct: true).includes(:user).order(created_at: :desc)
   end
   def new
     @manual = Manual.new
@@ -10,7 +11,7 @@ class ManualsController < ApplicationController
 
   def show
     @sentence = Sentence.new
-    @sentences = @manual.sentences
+    @sentences = @manual.sentences.order(:position) 
   end
  
 

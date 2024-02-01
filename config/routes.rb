@@ -11,7 +11,17 @@ Rails.application.routes.draw do
     get 'dashboards/edit', to: 'dashboards#edit'
     resources :users, only: %i[index show edit update]
     resources :manuals, only: %i[index new show create edit update destroy] do
-      resources :sentences, only: %i[create edit update destroy ] 
+      resources :sentences, only: %i[create edit update destroy ] do
+        member do
+          get :move_higher
+          get :move_lower
+        end
+      end
+    end
+    resources :quizzes, only: %i[index new show create edit update destroy] do
+      resources :questions, only: %i[create edit update destroy ] do
+        resources :choices, only: %i[create edit update destroy ]
+      end
     end
     resources :categories, only: %i[index new create edit update destroy]
     patch "withdrawal/:id" => "users#withdrawal", as: "withdrawal"
@@ -20,6 +30,6 @@ Rails.application.routes.draw do
   resources :categories, only: :index do
     resources :manuals, only: :index, module: :categories
   end
-  root "manuals#index"
+  root "categories#index"
 
 end

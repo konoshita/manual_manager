@@ -67,22 +67,44 @@ crumb :edit_admin_manual do |manual|
   parent :admin_manuals
 end
 
-crumb :manuals_path do
-  link '<i class="fa fa-dashboard"></i> Home'.html_safe, manuals_path
+crumb :new_admin_quiz do
+  link 'クイズ作成', new_admin_quiz_path
+  parent :admin_manuals
+end
+
+crumb :admin_quizzes do
+  link 'クイズ一覧', admin_quizzes_path
+  parent :admin_manuals
+end
+
+crumb :admin_quiz_path do |quiz|
+  link 'マニュアル詳細', admin_quiz_path(quiz.id)
+  parent :admin_manuals
+end
+
+crumb :edit_admin_quiz do |quiz|
+  link 'クイズ編集', edit_admin_quiz_path(quiz.id)
+  parent :admin_manuals
+end
+
+# ノーマル
+
+crumb :categories_path do
+  link '<i class="fa fa-dashboard"></i> Home'.html_safe, categories_path
 end
 
 
 crumb :manual_path do |manual|
-  link 'マニュアル詳細', manual_path(manual.id)
-  parent :manuals_path
+  link '内容', manual_path(manual.id)
+  parent :categories_path
 end
 
-crumb :categories_path do 
-  link 'カテゴリー', categories_path
-  parent :manuals_path
+crumb :manuals_path do 
+  link 'マニュアル検索', manuals_path
+  parent :categories_path
 end
 
 crumb :category_manuals_path do |category|
-  link 'マニュアル', category_manuals_path(category.id)
-  parent :manuals_path
+  link 'タイトル', category_manuals_path(category.id)
+  parent :categories_path
 end

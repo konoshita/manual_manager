@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_23_031321) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_01_023430) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.string "content"
+    t.boolean "is_answer"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_choices_on_question_id"
   end
 
   create_table "manuals", force: :cascade do |t|
@@ -26,6 +35,29 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_031321) do
     t.index ["user_id"], name: "index_manuals_on_user_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string "body"
+    t.integer "quiz_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
+  end
+
+  create_table "quiz_to_uesrs", force: :cascade do |t|
+    t.integer "quiz_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_quiz_to_uesrs_on_quiz_id"
+    t.index ["user_id"], name: "index_quiz_to_uesrs_on_user_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sentences", force: :cascade do |t|
     t.text "content"
     t.integer "manual_id"
@@ -33,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_031321) do
     t.datetime "updated_at", null: false
     t.string "subtitle"
     t.string "sentence_image"
+    t.integer "position"
     t.index ["manual_id"], name: "index_sentences_on_manual_id"
   end
 
@@ -47,10 +80,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_031321) do
     t.string "name", default: "", null: false
     t.integer "role", default: 0, null: false
     t.boolean "is_deleted", default: false
+    t.integer "score"
+    t.integer "quiz_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "manuals", "users"
+  add_foreign_key "quiz_to_uesrs", "quizzes"
+  add_foreign_key "quiz_to_uesrs", "users"
   add_foreign_key "sentences", "manuals"
 end

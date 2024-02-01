@@ -5,6 +5,9 @@ ja:
       manual: 'マニュアル'
       category: 'カテゴリー'
       sentence: '内容'
+      quiz: 'クイズ'
+      question: '問題'
+      choice: '選択肢'
     successful:
       messages:
         created: "%{model}に1件登録されました。"
@@ -25,7 +28,13 @@ ja:
       sentence:
         subtitle: '小見出し'
         content: '内容'
-        sentence_image: '画像'    
+        sentence_image: '画像'   
+      quiz: 
+        title: '質問タイトル'
+      question:
+        body: '問題内容'
+      choice:
+        content: '選択肢内容'
   enums:
       user:
         role:
