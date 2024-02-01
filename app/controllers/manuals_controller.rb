@@ -11,7 +11,7 @@ class ManualsController < ApplicationController
 
   def show
     @sentence = Sentence.new
-    @sentences = @manual.sentences
+    @sentences = @manual.sentences.order(:position) 
   end
  
 
