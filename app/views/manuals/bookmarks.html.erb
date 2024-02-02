@@ -1,17 +1,19 @@
 <% content_for(:title, t('.title')) %>
+
 <% breadcrumb :manuals_path %>
     <!-- 掲示板一覧 -->
 <div class="container">
   <div class="section-block-grey">
-  <h3><%= t('.title') %></h3>
-      <div class="row row-cols-1 mb-3 ">
-      <%= render 'search_form', url: manuals_path %>
+    <div class="container">
+      <h3>ブックマーク一覧</h3>
+      <div class="row mt-60">
       <ul class="fusen">
-        <% if @manuals.present? %>
-          <%= render @manuals %>
+        <% if @bookmark_manuals.present? %>
+        <%= render partial: "manual", collection: @bookmark_manuals %>
         <% else %>
           <%= t('.no_result') %>
         <% end %>
       </ul>
     </div>
   </div>
+</div>
