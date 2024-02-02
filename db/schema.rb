@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_01_023430) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_01_132609) do
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "manual_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manual_id"], name: "index_bookmarks_on_manual_id"
+    t.index ["user_id", "manual_id"], name: "index_bookmarks_on_user_id_and_manual_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -86,6 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_023430) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "manuals"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "manuals", "users"
   add_foreign_key "quiz_to_uesrs", "quizzes"
   add_foreign_key "quiz_to_uesrs", "users"

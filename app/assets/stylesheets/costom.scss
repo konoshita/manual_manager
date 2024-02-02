@@ -192,25 +192,28 @@ background: #fff;
 // 	text-align: left;
 // }
 h1.fusen {
-  position: relative;
-  padding-left: 70px;
+  // position: relative;
+  // padding-left: 70px;
   color: orange;
 	text-align: left;
-	margin:60px 0;
 }
 
-h1.fusen:before {
-  position: absolute;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f058";
-  color: orange;
-  left: 0;
-  text-align: center;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+form {
+	padding-top: 40px;
 }
+
+// h1.fusen:before {
+//   position: absolute;
+//   font-family: "Font Awesome 5 Free";
+//   font-weight: 900;
+//   content: "\f058";
+//   color: orange;
+//   left: 0;
+//   text-align: center;
+//   top: 50%;
+//   -webkit-transform: translateY(-50%);
+//   transform: translateY(-50%);
+// }
 
 // dl dd横並び
 dl {
@@ -350,18 +353,11 @@ dd {
 	color: #fff;
 }
 
-.serv-section-3:before {
-	background: orange;
-}
-.serv-section-3 .serv-section-3-icon i {
-	color: #fff;
-}
-
 .serv-section-2:hover:before {
 	background: orange;
 }
 // category manual indexタイトル
-.serv-section-3 {
+.serv-section-3,.serv-section-4 {
 	position: relative;
 	border: 1px solid #eee;
 	background: #fff;
@@ -370,20 +366,6 @@ dd {
 	overflow: hidden;
 	padding: 30px;
 	color: #fff;
-}
-
-.serv-section-3:before {
-	position: absolute;
-	top: 0;
-	right: 0px;
-	z-index: 0;
-	content: " ";
-	width: 120px;
-	height: 120px;
-	background: orange;
-	border-bottom-left-radius: 136px;
-	transition: all 0.4s ease-in-out;
-	-webkit-transition: all 0.4s ease-in-out;
 }
 
 .serv-section-3-icon {
@@ -396,7 +378,7 @@ dd {
 }
 
 .serv-section-3-icon i {
-	color: #fff;
+	color: #eeeeee;
 	font-size: 48px;
 	line-height: 65px;
 	transition: all 0.4s ease-in-out;
@@ -407,7 +389,7 @@ dd {
 	position: relative;
 }
 
-.serv-section-3 h4 {
+.serv-section-3 h4,.serv-section-4 h4 {
 	color: #333;
 	font-size: 20px;
 	font-weight: 500;
@@ -433,9 +415,12 @@ dd {
 	margin-bottom: 5px;
 }
 
-.serv-section-3 p {
+.serv-section-3 p{
 	margin-top: 25px;
 	padding-right: 50px;
+}
+.serv-section-4 i {
+	color: #333;
 }
 
 // お試しmanual title
