@@ -11,12 +11,16 @@
     <%= javascript_importmap_tags %>
     </head>
     <body >
-    <%= render 'shared/sidebar' %>
+    <div class="for-pc">
+      <%= render 'shared/sidebar' %>
+    </div>
+    <div class="for-sp">
+    <%= render 'shared/spmenu' %>
+    </div>
     <div id="container">
       <header id="global-head">
         <h1 id="brand-logo">Logo</h1>
       </header>
-    
       <main id="main">
         <div id="main-visual">
         <section class="content-header">
