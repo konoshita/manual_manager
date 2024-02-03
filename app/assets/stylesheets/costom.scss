@@ -9,9 +9,12 @@ body {
 	 font: 400 87.5%/1.2em 'Open Sans', sans-serif;
 	 font-size: 20px;
 	 line-height: normal;
+	 background: #fafafa;
 }
 #main {
 	background: #fafafa;
+	padding-top: 50px;
+  min-height: 0px;
 }
 
 a {
@@ -283,19 +286,19 @@ dd {
 	padding: 30px;
 }
 
-.serv-section-2:before {
-	position: absolute;
-	top: 0;
-	right: 0px;
-	z-index: 0;
-	content: " ";
-	width: 120px;
-	height: 120px;
-	background: #f5f5f5;
-	border-bottom-left-radius: 136px;
-	transition: all 0.4s ease-in-out;
-	-webkit-transition: all 0.4s ease-in-out;
-}
+// .serv-section-2:before {
+// 	position: absolute;
+// 	top: 0;
+// 	right: 0px;
+// 	z-index: 0;
+// 	content: " ";
+// 	width: 120px;
+// 	height: 120px;
+// 	background: #f5f5f5;
+// 	border-bottom-left-radius: 136px;
+// 	transition: all 0.4s ease-in-out;
+// 	-webkit-transition: all 0.4s ease-in-out;
+// }
 
 .serv-section-2-icon {
 	position: absolute;
@@ -307,7 +310,7 @@ dd {
 }
 
 .serv-section-2-icon i {
-	color: orange;
+	color:  rgb(238, 238, 238);
 	font-size: 48px;
 	line-height: 65px;
 	transition: all 0.4s ease-in-out;
@@ -350,7 +353,7 @@ dd {
 }
 
 .serv-section-2:hover .serv-section-2-icon i {
-	color: #fff;
+	color: orange;
 }
 
 .serv-section-2:hover:before {
@@ -441,4 +444,60 @@ background:#fafafa;
 }
 .btnarrow5 i{
 	color: #333;
+}
+
+/* メニューをページ下部に固定 */
+#fixed-footer-menu {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  opacity: 1;
+  z-index: 5000;
+}
+
+/* メニューを横並びにする */
+#fixed-footer-menu ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: #fff;
+}
+
+/* メニューの要素 */
+#fixed-footer-menu li {
+  justify-content: center;
+  align-items: center;
+  width: 25%; /* 要素が5つの場合（100/5） */
+  padding: 0;
+  margin: 0;
+}
+
+/* メニューのボタン */
+#fixed-footer-menu li a {
+  color: #333;
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 15px 0px 15px 0px;
+  font-size: 8px;
+  text-decoration: none;
+}
+
+/* メニュータイトル */
+#fixed-footer-menu li p {
+  font-size: 8px; /* メニュータイトルのフォントサイズ */
+}
+
+/* アイコンのサイズを調整 */
+.footer-icon {
+  font-size: 20px;
+}
+// pcとspの切り替え
+.for-pc { display:block; }
+.for-sp { display:none; }
+@media screen and (max-width: 750px) {
+	.for-pc { display:none; }
+  .for-sp { display:block; }
 }
