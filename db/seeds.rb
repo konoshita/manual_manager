@@ -12,14 +12,14 @@ User.create!(
   password_confirmation: 'password',
   role: 1
 )
-# 10.times do |index|
-#   User.create!(
-#       name: "ユーザー#{index}",
-#       email: "test#{index}@test.com",
-#       password: 'aaaaaaa',
-#       password_confirmation: 'aaaaaaa',
-#   )
-# end
+10.times do |index|
+  User.create!(
+      name: "ユーザー#{index}",
+      email: "test#{index}@test.com",
+      password: 'aaaaaaa',
+      password_confirmation: 'aaaaaaa',
+  )
+end
 20.times do |index|
   Manual.create!(
       user: User.offset(rand(User.count)).first,
