@@ -19,7 +19,28 @@
     </div>
     <div id="container">
       <header id="global-head">
+      <div class="row">
+      <div class="col-8">
         <h1 id="brand-logo">Logo</h1>
+        </div>
+        <div class="col-4 for-sp">
+        <ul class="header-dropmenu">
+      <li>
+        <a href="#" class="text-center"><i class="fas fa-user-circle footer-icon"></i></a>
+        <ul>
+          <li><a href="#"><% if user_signed_in? %>
+          <%= current_user.name =%>
+          <%end%></a></li>
+          <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <% if current_user.admin? %>
+			    <li>
+			      <%= link_to '管理者パネル', admin_root_path %>
+			    </li>
+			      <% end %>
+        </ul>
+      </li>
+    </ul></div>
+    </div>
       </header>
       <main id="main">
         <div id="main-visual">
