@@ -15,12 +15,18 @@
     <%= l manual.created_at, format: :short %>
   </td>
   <td>
-    <%= link_to t('defaults.show'), admin_manual_path(manual) %>
+    <%= link_to admin_manual_path(manual) do %>
+      <i class="fa fa-plus"></i>
+    <% end %>
   </td>
   <td>
-    <%= link_to t('defaults.edit'), edit_admin_manual_path(manual) %>
+    <%= link_to edit_admin_manual_path(manual) do%>
+      <i class="fa fa-edit"></i>
+      <% end %>
   </td>
   <td>
-    <%= link_to t('defaults.destroy'), admin_manual_path(manual) , method: :delete, data: { confirm: "#{manual.title}を削除してもよろしいですか？" } %>
+    <%= link_to  admin_manual_path(manual) , method: :delete, data: { confirm: "#{manual.title}を削除してもよろしいですか？" } do%>
+      <i class="fa fa-trash"></i>
+    <% end %>
   </td>
 </tr>

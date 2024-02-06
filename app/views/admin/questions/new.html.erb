@@ -1,0 +1,59 @@
+<%= form_with(model:[:admin, @quiz, @question], method: :post) do |f|%>
+<div class="form-group">
+  <%= f.label :body%>
+  <%= f.text_field :body, class: 'form-control'%>
+  <%= f.hidden_field :quiz_id, value: @quiz.id%>
+</div>
+      <div class="post-workout-menus">
+        <div class="workout-menus-container" id="workout-menus">
+          <%= f.fields_for :choices do |fm| %>
+            <div class="workout-menu" style="display: none;">
+              <div class="col-sm-9">
+                <label class="visually-hidden" for="specificSizeInputName">選択肢</label>
+                <%= fm.text_field :content, class: 'form-control'%>
+              </div>
+              <div class="col-auto">
+                <div class="form-check">
+                  <%= fm.check_box :is_answer ,class:'form-check-input'%>
+                  <label class="form-check-label" for="autoSizingCheck2">
+                    答え
+                  </label>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <div>
+          <button id="add-menu-button" type="button" class = "btn btn-default btn-block" >+</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.button :submit, class:'btn btn-primary' %>
+      </div>
+  <% end %> 
+  <script>
+    document.getElementById("add-menu-button").addEventListener("click", function() {
+      var container = document.getElementById("workout-menus");
+      var workoutMenus = container.getElementsByClassName("workout-menu");
+      
+      // 非表示のフォームを検索し、最初の非表示フォームを表示する
+      for (var i = 0; i < workoutMenus.length; i++) {
+        if (workoutMenus[i].style.display === "none") {
+          workoutMenus[i].style.display = "flex";
+          break;
+        }
+      }
+    });
+    document.getElementById("hide-menu-button").addEventListener("click", function() {
+      var container = document.getElementById("workout-menus");
+      var workoutMenus = container.getElementsByClassName("workout-menu");
+      
+      // 非表示のフォームを検索し、最初の表示されているフォームを非表示にする
+      for (var i = 0; i < workoutMenus.length; i++) {
+        if (workoutMenus[i].style.display !== "none") {
+          workoutMenus[i].style.display = "none";
+          break;
+        }
+      }
+    });
+  </script>

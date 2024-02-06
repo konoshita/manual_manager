@@ -1,6 +1,6 @@
 .form-group
-  = f.label :body
-  = f.text_field :body
+  = f.label :content
+  = f.text_field :content
   = f.hidden_field :quiz_id, value: @quiz.id
 .box-footer
   = f.button :submit, class: %w[btn btn-primary]

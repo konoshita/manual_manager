@@ -11,7 +11,7 @@
         <% if @bookmark_manuals.present? %>
         <%= render partial: "manual", collection: @bookmark_manuals %>
         <% else %>
-          <%= t('.no_result') %>
+        <%= render 'noresult' %>
         <% end %>
       </ul>
     </div>
