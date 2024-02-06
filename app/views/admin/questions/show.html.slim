@@ -1,0 +1,35 @@
+= content_for 'content-header' do
+  | 選択肢
+
+.col-md-12
+  .card.card-primary.card-outline
+    .card-header
+      .row
+        .col-md-5
+          .card.text-bg-light
+            .card-header
+              .box
+                .box-header
+                  h3.box-title 選択肢作成
+                  = @question.body
+        .col-md-7
+          .box
+            .description
+              dl.d-flex.align-items-center
+                dt 
+                  | 編集中：
+                dd.h4 
+                  = @question.body
+            .box-body.table-responsive.no-padding
+              table.table.table-hover style="table-layout:fixed;width:100%;"
+                thead
+                  tr
+                    th style="width:10%;" = Question.human_attribute_name(:id)
+                    th style="width:80%;" = Question.human_attribute_name(:content)
+                    th style="width:10%;"
+                tbody
+                  - @question.choices.each_with_index do |choice, i|
+                    tr
+                      td #{(i + 1)}
+                      td = choice.content
+                      td = choice.is_answer

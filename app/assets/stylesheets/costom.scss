@@ -235,6 +235,17 @@ dd {
   color: #010101;
 }
 
+.description dl {
+  margin: 5px 0 10px;
+}
+.description dt {
+  width: 30%;
+}
+.description dd {
+  width: 70%;
+}
+
+
 .sentence_wrapper p {
 	font-size: 1.2rem;
 	margin-top: 10px;

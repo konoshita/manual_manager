@@ -1,0 +1,9 @@
+<%= form_with model: @questions , local: true do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <%= f.fields_for :questions do |qu| %>
+    <%= qu.label :content %>
+    <%= qu.text_field :content %>
+  <% end %>
+  <%= f.submit 'send' %>
+<% end %>

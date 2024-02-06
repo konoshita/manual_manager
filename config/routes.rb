@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root to: 'dashboards#index'
-    get 'dashboards/show', to: 'dashboards#show'
-    get 'dashboards/edit', to: 'dashboards#edit'
+    root to: 'manuals#index'
     resources :users, only: %i[index show edit update]
     resources :manuals, only: %i[index new show create edit update destroy] do
       resources :sentences, only: %i[create edit update destroy ] do
@@ -19,7 +17,7 @@ Rails.application.routes.draw do
       end
     end
     resources :quizzes, only: %i[index new show create edit update destroy] do
-      resources :questions, only: %i[create edit update destroy ] do
+      resources :questions, only: %i[create new show edit update destroy ] do
         resources :choices, only: %i[create edit update destroy ]
       end
     end

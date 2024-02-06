@@ -10,7 +10,7 @@
             <% if @categories.present? %>
               <%= render @categories %>
             <% else %>
-              <%= t('.no_result') %>
+            <%= render 'manuals/noresult' %>
             <% end %>
           </div>
     </div>
