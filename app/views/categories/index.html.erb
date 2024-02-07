@@ -2,15 +2,17 @@
   
 <% breadcrumb :categories_path, @categories %>
     <!-- 掲示板一覧 -->
+<div class="container">
+  <div class="section-block-grey">
     <div class="container">
-    <div class="section-block-grey">
-    <div class="container">
-            <h3><%= t('.title') %></h3>
-        <div class="row mt-60">
-        <% if @categories.present? %>
-          <%= render @categories %>
-        <% else %>
-          <%= t('.no_result') %>
-        <% end %>
-        </div>
+        <h3><%= t('.title') %></h3>
+          <div class="row mt-60 mb-3">
+            <% if @categories.present? %>
+              <%= render @categories %>
+            <% else %>
+            <%= render 'manuals/noresult' %>
+            <% end %>
+          </div>
+    </div>
+  </div>
 </div>

@@ -13,13 +13,14 @@ tbody
         - else
           = image_tag sentence.sentence_image.url
       td
-        = link_to "↑", move_higher_admin_manual_sentence_path(sentence)
+        = link_to move_higher_admin_manual_sentence_path(sentence) do
+          i.fa.fa-caret-up
       td
-        = link_to "↓", move_lower_admin_manual_sentence_path(sentence)
+        = link_to move_lower_admin_manual_sentence_path(sentence) do
+          i.fa.fa-caret-down
       td
-        = link_to '編集', edit_admin_manual_sentence_path(sentence)
+        = link_to edit_admin_manual_sentence_path(sentence) do
+          i.fa.fa-edit
       td
         = link_to admin_manual_sentence_path(sentence), method: :delete, data: { confirm: "#{sentence.id}を削除してもよろしいですか？" } do
           i.fa.fa-trash
-          '
-          | 削除
