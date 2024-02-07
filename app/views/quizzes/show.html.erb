@@ -1,0 +1,38 @@
+<% content_for(:title, t('.title')) %>
+<% breadcrumb :quiz_path, @quiz %>
+    <!-- 掲示板一覧 -->
+    <div class="container">
+      <div class="section-block-grey">
+      <h3>問題</h3>
+        <div class="row mt-60">
+          <div class="col-md-12">
+            <div class="serv-section-3">
+              <div class="serv-section-3-icon"><i class="fa fa-check" aria-hidden="true"></i></div>
+                <div class="serv-section-desc">
+                  <h4><%= @quiz.title %></h4>
+                      <h5>Each Title</h5>
+                </div>
+                <div class="section-heading-line-left"></div>
+            </div>
+              <!-- 各カテゴリー内 マニュアル一覧 -->
+              <div class="row row-cols-1 mb-3">
+                <% @quiz.questions.each do |question| %>
+                  <a href="#">
+                    <div class="row g-0 btnarrow5">  
+                      <div class="col">
+                        <h3>Q.   <%= question.body %></h3>
+                        <% question.choices.each_with_index do |choice, i| %>
+                          <div class="d-grid pb-2 m-4">
+                            <button class="btn btn-lg btn-outline-secondary" type="button"><%= choice.content %></button>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </a>
+                <% end %> 
+              </div>
+              <!-- /掲示板一覧 -->
+            </div>
+          </div>
+        </div>
+      </div>
