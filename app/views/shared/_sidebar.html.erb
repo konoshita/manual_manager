@@ -15,6 +15,9 @@
 			<li class="sub-menu">
       <%= link_to 'HOME', categories_path %>
 			</li>
+			<li class="sub-menu">
+      <%= link_to 'クイズ', quizzes_path %>
+			</li>
 			<li><%= link_to '検索', manuals_path %></li>
 			<li><%= link_to 'ブックマーク一覧', bookmarks_manuals_path %></li>
 			<% if current_user.admin? %>

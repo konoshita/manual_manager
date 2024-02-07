@@ -32,6 +32,11 @@ ja:
       title: 'HOME'
     show:
       title: 'カテゴリー詳細'
+  quizzes:
+    index:
+      title: 'クイズ一覧'
+    show:
+      title: '問題'
   admin:
     user_sessions:
       new:

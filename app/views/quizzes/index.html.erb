@@ -1,0 +1,16 @@
+<% content_for(:title, t('.title')) %>
+<% breadcrumb :quizzes_path %>
+    <!-- 掲示板一覧 -->
+<div class="container">
+  <div class="section-block-grey">
+  <h3><%= t('.title') %></h3>
+      <div class="row row-cols-1 mb-3 ">
+      <ul class="fusen">
+        <% if @quizzes.present? %>
+          <%= render @quizzes %>
+        <% else %>
+          <%= render 'noresult' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>

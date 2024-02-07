@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :categories, only: :index do
     resources :manuals, only: :index, module: :categories
   end
+  resources :quizzes, only: %i[index show]
   root "categories#index"
 
 end

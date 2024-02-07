@@ -1,0 +1,16 @@
+  <div class="col-md-12">
+    <!-- 各カテゴリー内 マニュアル一覧 -->
+    <div class="row row-cols-1 mb-3">
+      <%= link_to quiz_path(quiz) do %>
+        <div class="row g-0 btnarrow5">  
+          <div class="col-11">
+            <%= quiz.title %>
+          </div>
+          <div class="col-1">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+    <!-- /掲示板一覧 -->
+  </div>
