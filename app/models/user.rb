@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :manuals
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_manuals, through: :bookmarks, source: :manual
   # has_many :quiz_to_user, dependent: :destroy
   # has_many :quizzes, through: :quiz_to_user
   # Include default devise modules. Others available are:
@@ -7,6 +9,18 @@ class User < ApplicationRecord
 
   def active_for_authentication?
     super && (is_deleted == false)
+  end
+
+  def bookmark(manual)
+    bookmark_manuals << manual
+  end
+
+  def unbookmark(manual)
+    bookmark_manuals.delete(manual)
+  end
+
+  def bookmark?(manual)
+    bookmark_manuals.include?(manual)
   end
 
   scope :not_is_deleted, -> { where(is_deleted: false) }

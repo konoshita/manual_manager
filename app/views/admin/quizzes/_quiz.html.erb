@@ -9,12 +9,18 @@
     <%= l quiz.created_at, format: :short %>
   </td>
   <td>
-    <%= link_to t('defaults.show'), admin_quiz_path(quiz) %>
+    <%= link_to admin_quiz_path(quiz) do%>
+      <i class="fa fa-plus"></i>
+    <% end %>
   </td>
   <td>
-    <%= link_to t('defaults.edit'), edit_admin_quiz_path(quiz) %>
+    <%= link_to edit_admin_quiz_path(quiz) do%>
+      <i class="fa fa-edit"></i>
+    <% end %>
   </td>
   <td>
-    <%= link_to t('defaults.destroy'), admin_quiz_path(quiz) , method: :delete, data: { confirm: "#{quiz.title}を削除してもよろしいですか？" } %>
+    <%= link_to admin_quiz_path(quiz) , method: :delete, data: { confirm: "#{quiz.title}を削除してもよろしいですか？" } do%>
+      <i class="fa fa-trash"></i>
+    <% end %>
   </td>
 </tr>

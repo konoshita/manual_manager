@@ -13,6 +13,10 @@ class ManualsController < ApplicationController
     @sentence = Sentence.new
     @sentences = @manual.sentences.order(:position) 
   end
+
+  def bookmarks
+    @bookmark_manuals = current_user.bookmark_manuals.includes(:user).order(created_at: :desc)
+  end
  
 
   private
