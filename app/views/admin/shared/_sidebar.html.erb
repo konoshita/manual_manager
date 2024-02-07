@@ -92,6 +92,38 @@
             </p>
           <% end %>
         </li>
+        <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>
+         レイアウトのみ
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+      <li class="nav-item">
+      <%= link_to admin_root_path, class: "nav-link" do %>
+          
+            <i class="far fa-circle nav-icon"></i>
+            <p>form</p>
+            <% end %>
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item">
+        <%= link_to admin_dashboards_show_path, class: "nav-link" do %>
+            <i class="far fa-circle nav-icon"></i>
+            <p>profile</p>
+          <% end %>
+        </li>
+        <li class="nav-item">
+        <%= link_to admin_dashboards_edit_path, class: "nav-link" do %>
+            <i class="far fa-circle nav-icon"></i>
+            <p>tab</p>
+          <% end %>
+        </li>
+      </ul>
+    </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

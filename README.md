@@ -8,7 +8,7 @@ ruby 3.1.2
 * Configuration
 
 * Database creation
-postgresql
+mySQL
 
 * Database initialization
 
@@ -112,10 +112,9 @@ README〜ER図作成：1/13 〆切
 
 ■技術選定
  Rails7
- postgresql
+ MySQL
  JavaScript
  Bootstrap
- Devise
  ImageMagick
  MiniMagick
  ActionCable
@@ -139,6 +138,4 @@ https://gyazo.com/5cb261a2294f3385761b367aa09f2383
 ■画面遷移図
 
 =======
-
-docker-compose up             
 

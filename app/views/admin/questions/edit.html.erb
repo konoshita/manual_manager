@@ -14,79 +14,10 @@
         <div class="card-body">
         <%= form_with url: admin_quiz_question_path, model: @question, local: true do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
-          <div class="form-group">
-  <%= f.label :body%>
-  <%= f.text_field :body, class: 'form-control'%>
-  <%= f.hidden_field :quiz_id, value: @quiz.id%>
-</div>
-      <div class="post-workout-menus">
-        <div class="workout-menus-container" id="workout-menus">
-          <%= f.fields_for :questions do |fm| %>
-            <div class="workout-menu" style="display: none;">
-              <div class="col-sm-9">
-                <label class="visually-hidden" for="specificSizeInputName">選択肢</label>
-                <%= fm.text_field :content, class: 'form-control'%>
-              </div>
-              <div class="col-auto">
-                <div class="form-check">
-                  <%= fm.check_box :is_answer ,class:'form-check-input'%>
-                  <label class="form-check-label" for="autoSizingCheck2">
-                    答え
-                  </label>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <%= f.fields_for :questions do |fm| %>
-            <div class="workout-menu" style="display: none;">
-              <div class="col-sm-9">
-                <label class="visually-hidden" for="specificSizeInputName">選択肢</label>
-                <%= fm.text_field :content, class: 'form-control'%>
-              </div>
-              <div class="col-auto">
-                <div class="form-check">
-                  <%= fm.check_box :is_answer ,class:'form-check-input'%>
-                  <label class="form-check-label" for="autoSizingCheck2">
-                    答え
-                  </label>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <%= f.fields_for :questions do |fm| %>
-            <div class="workout-menu" style="display: none;">
-              <div class="col-sm-9">
-                <label class="visually-hidden" for="specificSizeInputName">選択肢</label>
-                <%= fm.text_field :content, class: 'form-control'%>
-              </div>
-              <div class="col-auto">
-                <div class="form-check">
-                  <%= fm.check_box :is_answer ,class:'form-check-input'%>
-                  <label class="form-check-label" for="autoSizingCheck2">
-                    答え
-                  </label>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <%= f.fields_for :questions do |fm| %>
-            <div class="workout-menu" style="display: none;">
-              <div class="col-sm-9">
-                <label class="visually-hidden" for="specificSizeInputName">選択肢</label>
-                <%= fm.text_field :content, class: 'form-control'%>
-              </div>
-              <div class="col-auto">
-                <div class="form-check">
-                  <%= fm.check_box :is_answer ,class:'form-check-input'%>
-                  <label class="form-check-label" for="autoSizingCheck2">
-                    答え
-                  </label>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+          <div class="mb-3">
+            <%= f.label :body %>
+            <%= f.text_field :body, class: 'form-control' %>
+          </div>
           <%= f.submit '登録', class: 'btn btn-primary' %>
         <% end %>
         </div>

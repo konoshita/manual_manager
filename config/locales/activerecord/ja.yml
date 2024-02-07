@@ -30,9 +30,9 @@ ja:
         content: '内容'
         sentence_image: '画像'   
       quiz: 
-        title: '題問作成'
+        title: '質問タイトル'
       question:
-        body: '問'
+        body: '問題内容'
       choice:
         content: '選択肢内容'
   enums:

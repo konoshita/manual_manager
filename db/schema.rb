@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_01_132609) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "bookmarks", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "manual_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["manual_id"], name: "index_bookmarks_on_manual_id"
-    t.index ["user_id", "manual_id"], name: "index_bookmarks_on_user_id_and_manual_id", unique: true
-    t.index ["user_id"], name: "index_bookmarks_on_user_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2024_02_01_023430) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -33,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_132609) do
   create_table "choices", force: :cascade do |t|
     t.string "content"
     t.boolean "is_answer"
-    t.bigint "question_id"
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_choices_on_question_id"
@@ -41,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_132609) do
 
   create_table "manuals", force: :cascade do |t|
     t.string "title", null: false
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
@@ -50,15 +37,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_132609) do
 
   create_table "questions", force: :cascade do |t|
     t.string "body"
-    t.bigint "quiz_id"
+    t.integer "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
   end
 
   create_table "quiz_to_uesrs", force: :cascade do |t|
-    t.bigint "quiz_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "quiz_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_quiz_to_uesrs_on_quiz_id"
@@ -73,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_132609) do
 
   create_table "sentences", force: :cascade do |t|
     t.text "content"
-    t.bigint "manual_id"
+    t.integer "manual_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "subtitle"
@@ -99,8 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_132609) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookmarks", "manuals"
-  add_foreign_key "bookmarks", "users"
   add_foreign_key "manuals", "users"
   add_foreign_key "quiz_to_uesrs", "quizzes"
   add_foreign_key "quiz_to_uesrs", "users"

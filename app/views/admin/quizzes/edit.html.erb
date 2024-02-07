@@ -13,7 +13,7 @@
           <span>クイズ編集</span>
         </div>
         <div class="card-body">
-        <%= form_for @quiz, url: admin_quiz_path,  local: true do |f| %>
+        <%= form_with url: admin_quiz_path, model: @quiz, local: true do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
           <div class="mb-3">
             <%= f.label :title %>

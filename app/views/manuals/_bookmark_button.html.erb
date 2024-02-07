@@ -1,5 +1,0 @@
-<% if current_user.bookmark?(manual) %>
-  <%= render 'unbookmark', {manual: manual} %>
-<% else %>
-  <%= render 'bookmark', {manual: manual} %>
-<% end %>

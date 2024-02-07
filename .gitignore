@@ -46,4 +46,3 @@ yarn-debug.log*
 !/app/assets/builds/.keep
 
 /public/uploads
-.env

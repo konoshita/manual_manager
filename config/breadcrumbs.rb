@@ -74,27 +74,17 @@ end
 
 crumb :admin_quizzes do
   link 'クイズ一覧', admin_quizzes_path
-  parent :admin_dashboard
+  parent :admin_manuals
 end
 
 crumb :admin_quiz_path do |quiz|
-  link 'クイズ詳細', admin_quiz_path(quiz.id)
+  link 'マニュアル詳細', admin_quiz_path(quiz.id)
   parent :admin_manuals
 end
 
 crumb :edit_admin_quiz do |quiz|
   link 'クイズ編集', edit_admin_quiz_path(quiz.id)
-  parent :admin_quizzes
-end
-
-crumb :new_admin_quiz_question_path do
-  link '問題を作る', new_admin_quiz_question_path
-  parent :admin_quizzes
-end
-
-crumb :edit_admin_quiz_question_path do  |question|
-  link '問題を編集', edit_admin_quiz_question_path(question.id)
-  parent :admin_quiz_path
+  parent :admin_manuals
 end
 
 # ノーマル
