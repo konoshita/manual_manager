@@ -2,10 +2,6 @@ class Admin::QuestionsController < Admin::BaseController
   before_action :set_question, only: %i[ show edit update destroy]
   before_action :set_quiz, only: %i[ show edit update destroy]
   
-  def create
-    @question = @quiz.questions.new(question_params)
-  before_action :set_quiz, only: %i[show edit update destroy]
-  
   def new
     @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.new
@@ -13,8 +9,8 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def create
-    @question = @quiz.questions.new(question_params)
-    binding.pry
+    @quiz = Quiz.find(params[:quiz_id])
+    @question = Question.new(question_params)
     if @question.save
       redirect_to admin_quiz_path(@quiz)
     else

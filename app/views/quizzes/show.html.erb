@@ -14,22 +14,9 @@
                 </div>
                 <div class="section-heading-line-left"></div>
             </div>
-              <!-- 各カテゴリー内 マニュアル一覧 -->
+              <!-- 各quizー内 question一覧 -->
               <div class="row row-cols-1 mb-3">
-                <% @quiz.questions.each do |question| %>
-                  <a href="#">
-                    <div class="row g-0 btnarrow5">  
-                      <div class="col">
-                        <h3>Q.   <%= question.body %></h3>
-                        <% question.choices.each_with_index do |choice, i| %>
-                          <div class="d-grid pb-2 m-4">
-                            <button class="btn btn-lg btn-outline-secondary" type="button"><%= choice.content %></button>
-                          </div>
-                        <% end %>
-                      </div>
-                    </div>
-                  </a>
-                <% end %> 
+                <%= render 'questions/questions', { questions: @questions } %>
               </div>
               <!-- /掲示板一覧 -->
             </div>
