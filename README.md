@@ -139,6 +139,15 @@ https://gyazo.com/5cb261a2294f3385761b367aa09f2383
 ■画面遷移図
 
 =======
-
+<!-- コンテナ起動 -->
 docker-compose up             
 
+<!-- コンテナ名を確認 -->
+$ docker ps
+
+<!-- デバック：コンテナにattachしてコンソールに入る -->
+docker attach sample_manual-web-1
+
+<!-- バッシュに入ってコンソールに入る -->
+docker exec -it sample_manual-web-1 /bin/bash
+rails c

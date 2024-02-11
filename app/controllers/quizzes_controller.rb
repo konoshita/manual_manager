@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: %i[ show edit update destroy ]
+  before_action :set_quiz, only: %i[ show edit]
 
   # GET /quizzes or /quizzes.json
   def index
@@ -17,6 +17,17 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new
   end
 
+  def judge
+    @choice = Choice.find(params[:id])
+      if @choice.is_answer == true
+        flash[:notice] = '正解'
+        redirect_to request.referer
+      else
+        flash[:notice] = '違います'
+        redirect_to request.referer
+      end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -26,6 +37,6 @@ class QuizzesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quiz_params
-      params.fetch(:quiz, {})
+      params.require(:quiz).permit(:title)
     end
 end
