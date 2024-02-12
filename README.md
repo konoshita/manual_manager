@@ -151,3 +151,6 @@ docker attach sample_manual-web-1
 <!-- バッシュに入ってコンソールに入る -->
 docker exec -it sample_manual-web-1 /bin/bash
 rails c
+
+<!-- dockerでモデルやテーブル作成の時 rails~の前につけてね -->
+docker-compose exec web rails
