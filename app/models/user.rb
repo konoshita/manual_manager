@@ -7,8 +7,18 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
+  scope :not_is_deleted, -> { where(is_deleted: false) }
+
+  enum role: { general: 0, admin: 1 ,editor: 2 }
+  devise :invitable, :database_authenticatable,
+         :recoverable, :rememberable, :validatable, invite_for: 24.hours
+
   def active_for_authentication?
     super && (is_deleted == false)
+  end
+
+  def admin_ok?
+    admin? || role == "editor"
   end
 
   def bookmark(manual)
@@ -23,9 +33,4 @@ class User < ApplicationRecord
     bookmark_manuals.include?(manual)
   end
 
-  scope :not_is_deleted, -> { where(is_deleted: false) }
-
-  enum role: { general: 0, admin: 1 ,editor: 2 }
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 end

@@ -6,7 +6,7 @@ class Admin::BaseController < ApplicationController
   private
 
   def check_admin
-    unless current_user&.admin?
+    unless current_user&.admin? || current_user.role == "editor"
       redirect_to root_path, alert: '権限がありません。'
     end
   end

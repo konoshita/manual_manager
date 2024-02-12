@@ -51,6 +51,7 @@
         </li>
       </ul>
     </li>
+    <% if current_user.admin? %>
     <li class="nav-item has-treeview">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
@@ -76,14 +77,32 @@
         </li>
       </ul>
     </li>
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>
+         ユーザー管理
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+      <li class="nav-item">
+      <%= link_to admin_users_path ,class: "nav-link" do %>
+            <i class="far fa-circle nav-icon"></i>
+            <p>ユーザー一覧</p>
+            <% end %>
+        </li>
         <li class="nav-item">
-        <%= link_to admin_users_path ,class: "nav-link" do %>
-            <i class="nav-icon far fa-user"></i>
-            <p>
-              ユーザ一管理
-            </p>
+        </li>
+        <li class="nav-item">
+        <%= link_to new_user_invitation_path, class: "nav-link" do %>
+            <i class="far fa-circle nav-icon"></i>
+            <p>ユーザー招待</p>
           <% end %>
         </li>
+      </ul>
+    </li>
+        <%end%>
         <li class="nav-item">
         <%= link_to root_path ,class: "nav-link" do %>
             <i class="nav-icon far fa-user"></i>
