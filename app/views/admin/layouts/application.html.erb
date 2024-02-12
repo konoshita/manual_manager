@@ -9,7 +9,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-<% if current_user.role == "admin" %>
+<% if current_user.admin_ok? %>
 <div class="wrapper">
 
   <%= render 'admin/shared/header' %>

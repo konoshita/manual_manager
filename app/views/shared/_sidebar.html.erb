@@ -20,7 +20,7 @@
 			</li>
 			<li><%= link_to '検索', manuals_path %></li>
 			<li><%= link_to 'ブックマーク一覧', bookmarks_manuals_path %></li>
-			<% if current_user.admin? %>
+			<% if current_user.admin_ok? %>
 			<li class="sub-menu">
 			<%= link_to '管理者パネル', admin_root_path %>
 			</li>
