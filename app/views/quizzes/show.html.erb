@@ -1,0 +1,25 @@
+<% content_for(:title, t('.title')) %>
+<% breadcrumb :quiz_path, @quiz %>
+    <!-- 掲示板一覧 -->
+    <div class="container">
+      <div class="section-block-grey">
+      <h3>問題</h3>
+        <div class="row mt-60">
+          <div class="col-md-12">
+            <div class="serv-section-3">
+              <div class="serv-section-3-icon"><i class="fa fa-check" aria-hidden="true"></i></div>
+                <div class="serv-section-desc">
+                  <h4><%= @quiz.title %></h4>
+                      <h5>Each Title</h5>
+                </div>
+                <div class="section-heading-line-left"></div>
+            </div>
+              <!-- 各quizー内 question一覧 -->
+              <div class="row row-cols-1 mb-3">
+                <%= render 'questions/questions', { questions: @questions } %>
+              </div>
+              <!-- /掲示板一覧 -->
+            </div>
+          </div>
+        </div>
+      </div>
