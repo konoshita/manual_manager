@@ -118,3 +118,13 @@ crumb :category_manuals_path do |category|
   link 'タイトル', category_manuals_path(category.id)
   parent :categories_path
 end
+
+crumb :quizzes_path do 
+  link 'クイズ', quizzes_path
+  parent :categories_path
+end
+
+crumb :quiz_path do  |quiz|
+  link '問題', quiz_path(quiz.id)
+  parent :quizzes_path
+end

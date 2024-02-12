@@ -1,17 +1,18 @@
 class Admin::QuestionsController < Admin::BaseController
   before_action :set_question, only: %i[ show edit update destroy]
-  before_action :set_quiz, only: %i[ new create show edit update destroy]
+  before_action :set_quiz, only: %i[ show edit update destroy]
   
   def new
+    @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.new
     4.times { @question.choices.build }
   end
 
   def create
-    @question = @quiz.questions.new(question_params)
-    binding.pry
+    @quiz = Quiz.find(params[:quiz_id])
+    @question = Question.new(question_params)
     if @question.save
-      redirect_back(fallback_location: root_path)  #コメント送信後は、一つ前のページへリダイレクトさせる。
+      redirect_to admin_quiz_path(@quiz)
     else
       flash[:danger] = "クイズの作成が失敗しました。もう一度試してください。"
       redirect_back(fallback_location: root_path)  #同上
