@@ -10,6 +10,7 @@ class QuizzesController < ApplicationController
   def show
     @question = Question.new
     @questions = @quiz.questions
+    @choices = Question.find(params[:id]).choices
   end
 
   # GET /quizzes/new
