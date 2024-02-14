@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
     render template: 'errors/render404', layout: 'devise', status: :not_found
   end
 
+  def check_admin
+    unless current_user&.admin? || current_user.role == "editor"
+      redirect_to root_path, alert: '権限がありません。'
+    end
+  end
+
   private
 
   def layout_by_resource
