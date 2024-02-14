@@ -25,6 +25,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def withdrawal
+        authorize(User)
         @user.update(is_deleted: !@user.is_deleted)
     
            if @user.is_deleted
