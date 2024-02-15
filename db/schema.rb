@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_12_044446) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_11_125724) do
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "manual_id", null: false
@@ -88,11 +88,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_12_044446) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: "", null: false
-    t.integer "role", default: 0, null: false
-    t.boolean "is_deleted", default: false
-    t.integer "score"
-    t.integer "quiz_id"
     t.string "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -101,6 +96,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_12_044446) do
     t.string "invited_by_type"
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.string "name", default: "", null: false
+    t.integer "role", default: 0, null: false
+    t.boolean "is_deleted", default: false
+    t.integer "score"
+    t.integer "quiz_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
