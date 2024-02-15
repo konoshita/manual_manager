@@ -74,7 +74,8 @@ end
 
 group :production do
   # Use PstgreSQL as the database for Active Record
-  gem 'pg'
+  gem "pg", "~> 1.4"
+  gem 'dotenv-rails'
 end
 
 #追加
