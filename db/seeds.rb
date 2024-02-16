@@ -12,6 +12,45 @@ User.create!(
   password_confirmation: 'aki00aka',
   role: 1
 )
+Category.create!(
+  name: '太陽堂について'
+)
+Category.create!(
+  name: '煎じ薬作り'
+)
+Category.create!(
+  name: '粉薬作り'
+)
+Category.create!(
+  name: '錠剤・カプセル・丸剤'
+)
+Category.create!(
+  name: '送り状作成'
+)
+Category.create!(
+  name: '電話業務'
+)
+Category.create!(
+  name: '梱包業務'
+)
+Category.create!(
+  name: '来客のお客様ご案内'
+)
+Category.create!(
+  name: 'メール業務'
+)
+Category.create!(
+  name: 'LINE業務'
+)
+Category.create!(
+  name: '電話業務'
+)
+Category.create!(
+  name: 'その他業務'
+)
+Category.create!(
+  name: '３階その他業務'
+)
 # 10.times do |index|
 #   User.create!(
 #       name: "ユーザー#{index}",
