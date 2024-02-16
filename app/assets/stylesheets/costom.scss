@@ -502,7 +502,7 @@ background:#fafafa;
 
 /* アイコンのサイズを調整 */
 .footer-icon {
-  font-size: 30px;
+  font-size: 25px;
 }
 // pcとspの切り替え
 .for-pc { display:block; }
@@ -512,6 +512,7 @@ background:#fafafa;
   .for-sp { display:block; }
 }
 ul.header-dropmenu {
+	font-size: 0.5rem;
   list-style: none;
   width: 100%;
   height: 40px;
@@ -530,7 +531,7 @@ ul.header-dropmenu li a,ul.header-dropmenu li form{
   line-height: 40px;
   text-decoration: none;
   font-size: 14px;
-	padding: 0px 30px;
+	padding: 0px 10px;
 }
 ul.header-dropmenu li ul {
   visibility: hidden;
