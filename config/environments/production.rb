@@ -97,6 +97,7 @@ Rails.application.configure do
     password: Rails.application.credentials.gmail[:password],
     #パスワードをBase64でエンコード
     authentication: :login
+  }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
