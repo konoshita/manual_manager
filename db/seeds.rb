@@ -5,13 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# User.create!(
-#   name: '此下明里',
-#   email: 'minglicangzhi@gmail.com',
-#   password: 'aki00aka',
-#   password_confirmation: 'aki00aka',
-#   role: 1
-# )
+User.create!(
+  name: '管理者',
+  email: 'admin@example.com',
+  password: 'password',
+  password_confirmation: 'password',
+  role: 1
+)
 Category.create!(
   name: '太陽堂について'
 )
@@ -51,6 +51,7 @@ Category.create!(
 Category.create!(
   name: '３階その他業務'
 )
+
 # 10.times do |index|
 #   User.create!(
 #       name: "ユーザー#{index}",
