@@ -89,14 +89,15 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     #gmail利用時はaddress,domain,portは下記で固定
     address:"pharma88a@gmail.com",
-    domain: 'gmail.com',
+    domain: 'bi-bo-u4dr.onrender.com',
     port:587,
     #gmailのユーザアカウント（xxxx@gmail.com)※念のため、credentials.yml.enc行き
-    user_name: Rails.application.credentials.gmail[:user_name],
+    user_name: ENV['GMAIL_USERNAME'],
     #gmail２段階認証回避のためにアプリケーションでの利用パスワードを取得、必ずcredentials.yml.endに設定を！！
-    password: Rails.application.credentials.gmail[:password],
+    password: ENV['GMAIL_PASSWORD'],
     #パスワードをBase64でエンコード
-    authentication: :login
+    authentication:       'plain',
+    enable_starttls_auto: true 
   }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?

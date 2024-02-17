@@ -8,6 +8,9 @@
     <%= stylesheet_link_tag "bootstrap.min", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "costom", "data-turbo-track": "reload" %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
     <%= javascript_importmap_tags %>
     </head>
     <body >
@@ -26,7 +29,7 @@
         <div class="col-4">
         <ul class="header-dropmenu">
       <li>
-        <a href="#" class="text-center"><i class="fas fa-user-circle footer-icon"></i></a>
+        <a href="#" class="text-end"><i class="fas fa-user-circle footer-icon"></i></a>
         <ul>
           <li><a href="#"><% if user_signed_in? %>
           <%= current_user.name =%>
@@ -59,9 +62,6 @@
         </div>
       </main>
     </div><!-- /#container -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
     <script type="text/javascript">
     (function($) {
         $(function () {
