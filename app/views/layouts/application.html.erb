@@ -8,14 +8,42 @@
     <%= stylesheet_link_tag "bootstrap.min", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "costom", "data-turbo-track": "reload" %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
     <%= javascript_importmap_tags %>
     </head>
     <body >
     <div class="for-pc">
-      <%= render 'shared/sidebar' %>
+    <div id="nav-toggle">
+    <div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="scroll">
+    <nav id="global-nav">
+      <ul>
+      <li><a href="#"><% if user_signed_in? %>
+      <%= current_user.name =%>
+      <%end%></a>
+      </li>
+        <li class="sub-menu">
+        <%= link_to 'HOME', categories_path %>
+        </li>
+        <li class="sub-menu">
+        <%= link_to 'クイズ', quizzes_path %>
+        </li>
+        <li><%= link_to '検索', manuals_path %></li>
+        <li><%= link_to 'ブックマーク一覧', bookmarks_manuals_path %></li>
+        <% if current_user.admin_ok? %>
+        <li class="sub-menu">
+        <%= link_to '管理者パネル', admin_root_path %>
+        </li>
+        <% end %>
+        <li><%= button_to "ログアウト", destroy_user_session_path, class: "sub-menu-change", method: :delete %></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
     </div>
     <div class="for-sp">
     <%= render 'shared/spmenu' %>
@@ -62,6 +90,9 @@
         </div>
       </main>
     </div><!-- /#container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
     <script type="text/javascript">
     (function($) {
         $(function () {
