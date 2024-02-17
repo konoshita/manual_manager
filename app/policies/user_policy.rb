@@ -15,6 +15,10 @@ class UserPolicy < ApplicationPolicy
     user.admin? || user == record
   end
 
+  def withdrawal?
+    user.admin?
+  end
+
   def destroy?
     user != record && create?
   end

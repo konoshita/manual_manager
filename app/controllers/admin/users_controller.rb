@@ -25,6 +25,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def withdrawal
+        authorize(User)
         @user.update(is_deleted: !@user.is_deleted)
     
            if @user.is_deleted
@@ -32,9 +33,16 @@ class Admin::UsersController < Admin::BaseController
            else
               flash[:notice] = "有効にします"
            end
-              redirect_to admin_root_path
+              redirect_to admin_users_path
        
      end
+
+     def destroy
+        authorize(User)
+        User.find(params[:id]).destroy
+        flash[:success] = "User deleted"
+        redirect_to admin_users_path
+      end
 
     private
 

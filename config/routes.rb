@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'manuals#index'
-    resources :users, only: %i[index show edit update]
+    resources :users, only: %i[index show edit update destroy]
     resources :manuals, only: %i[index new show create edit update destroy] do
       resources :sentences, only: %i[create edit update destroy ] do
         member do

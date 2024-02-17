@@ -82,7 +82,7 @@ Rails.application.configure do
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
-  config.action_mailer.default_url_options = {  :host => 'https://bi-bo-u4dr.onrender.com' }
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
   #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
   config.action_mailer.delivery_method = :smtp
   #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
