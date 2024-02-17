@@ -6,7 +6,11 @@
         <% end %></li>
       <li><%= link_to bookmarks_manuals_path do%><i class="fas fa-bookmark footer-icon"></i><br>
         <% end %></li>
-      <li><a href="./"><i class="fas fa-user-circle footer-icon"></i><br>
-        </a></li>
+      <li>
+      <% if current_user.admin_ok? %>
+        <%= link_to admin_root_path do %><i class="fas fa-ghost footer-icon" ></i><br>
+        <% end %>
+        <% else %>
+        <a href="#"><i class="fas fa-ghost footer-icon" ></i></a><% end %></li>
     </ul>
   </div>

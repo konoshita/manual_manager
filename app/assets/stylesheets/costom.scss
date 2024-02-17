@@ -64,12 +64,16 @@ h3 {
 	position: fixed;
 	color: #f3cc3c;
 	background: #5e5e5e;
+	z-index: 888;
 }
 
 #brand-logo {
 	-webkit-transition: .35s ease-in-out;
 	-moz-transition: .35s ease-in-out;
 	transition: .35s ease-in-out;
+}
+#brand-logo h1{
+	margin: 0;
 }
 
 #global-nav ul {
