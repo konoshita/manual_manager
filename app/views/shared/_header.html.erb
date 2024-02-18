@@ -1,0 +1,31 @@
+<header class="header-3">
+  <div class="header-inner">
+    <div class="logo">
+    <h1 id="brand-logo"><i class="fa fa-ghost text-warning" ></i> BI-BO</h1>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav-item">
+        <%= link_to categories_path ,class:"header-button header-menu" do%><i class="fas fa-th-large"></i>  ダッシュボード
+          <% end %>
+      </div>
+      <div class="header-nav-item">
+      <%= link_to bookmarks_manuals_path, class:"header-button header-menu" do%><i class="fas fa-bookmark"></i>  ブックマーク
+        <% end %>
+      </div>
+      <div class="header-nav-item">
+      <%= link_to manuals_path, class:"header-button header-menu" do %><i class="fas fa-search"></i>  検索
+        <% end %>
+      </div>
+      <div class="header-nav-item">
+      <% if current_user.admin_ok? %>
+        <%= link_to admin_root_path, class:"header-button header-menu"  do %><i class="fas fa-ghost" ></i>管理パネル
+        <% end %>
+        <% else %>
+        <a href="#" class="header-button header-menu"><i class="fas fa-ghost" ></i>  管理パネル</a><% end %>
+      </div>
+      <div class="header-nav-item">
+        <%= button_to "ログアウト", destroy_user_session_path, class:"header-button header-on", method: :delete %>
+      </div>
+    </nav>
+  </div>
+</header>
