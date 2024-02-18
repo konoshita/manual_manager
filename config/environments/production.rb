@@ -88,8 +88,8 @@ Rails.application.configure do
   #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
   config.action_mailer.smtp_settings = {
     #gmail利用時はaddress,domain,portは下記で固定
-    address:"smtp.pharma88a@gmail.com",
-    domain: 'bi-bo-u4dr.onrender.com',
+    address:"smtp.gmail.com",
+    domain: 'gmail.com',
     port:587,
     #gmailのユーザアカウント（xxxx@gmail.com)※念のため、credentials.yml.enc行き
     user_name: ENV['GMAIL_USERNAME'],
