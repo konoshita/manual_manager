@@ -3,8 +3,8 @@ CarrierWave.configure do |config|
   config.fog_provider = 'fog/google'
   config.fog_credentials = {
     provider: 'Google',
-    google_storage_access_key_id: ENV['google_storage_access_key_id'],
-    google_storage_secret_access_key: ENV['google_storage_secret_access_key']
+    google_storage_access_key_id: ENV['GOOGLE_STRAGE_ACCSESS_KEY_ID'],
+    google_storage_secret_access_key: ENV['GOOGLE_STRAGE_SECRET_ACCESS_KEY']
   }
     config.fog_directory = ENV['GCS_BUCKET']
   else # 本番環境以外の場合はアプリケーション内にアップロード
