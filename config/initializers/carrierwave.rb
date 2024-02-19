@@ -1,14 +1,16 @@
+require 'carrierwave/storage/abstract'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
+
 CarrierWave.configure do |config|
-  if Rails.env.production? 
-  config.fog_provider = 'fog/google'
-  config.fog_credentials = {
-    provider: 'Google',
-    google_storage_access_key_id: ENV['GOOGLE_STRAGE_ACCSESS_KEY_ID'],
-    google_storage_secret_access_key: ENV['GOOGLE_STRAGE_SECRET_ACCESS_KEY']
-  }
-    config.fog_directory = ENV['GCS_BUCKET']
-  else # 本番環境以外の場合はアプリケーション内にアップロード
-    config.storage :file
-    config.enable_processing = false if Rails.env.test?
-  end
-end
+    config.storage :fog
+    config.fog_provider = 'fog/aws'
+    config.fog_directory  = 'bi-bo-img' # バケット名
+    config.fog_credentials = {
+      provider: 'AWS',
+      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], # 環境変数
+      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'], # 環境変数
+      region: 'ap-northeast-1', # リージョン
+      path_style: true
+    }
+end 
