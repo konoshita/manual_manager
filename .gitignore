@@ -33,7 +33,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-node_modules
 
 /public/packs
 /public/packs-test
@@ -47,3 +46,4 @@ yarn-debug.log*
 
 /public/uploads
 .env
+.env.production

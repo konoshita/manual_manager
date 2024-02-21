@@ -1,0 +1,21 @@
+databases:
+  - name: manual
+    databaseName: manual_3dx8
+    user: manual_3dx8_user
+    region: singapore
+
+services:
+  - type: web
+    name: manual
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: manual
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
