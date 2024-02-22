@@ -1,6 +1,7 @@
 class Manual < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :sentences, -> { order(position: :asc) }, dependent: :destroy
   validates :title, presence: true, length: { maximum: 255 }

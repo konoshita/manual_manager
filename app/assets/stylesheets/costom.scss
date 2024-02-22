@@ -13,7 +13,7 @@ body {
 }
 #main {
 	background: #fafafa;
-	padding-top: 50px;
+	padding-top: 80px;
 	margin: auto;
 }
 
@@ -501,3 +501,245 @@ ul.header-dropmenu > li:hover {
 ul.header-dropmenu li:hover ul li:hover {
   background: #f8f8f8;
 }
+
+// コメント機能
+.modal-2__wrap input[type="radio"] ,.modal-3__wrap input[type="radio"] {
+	display: none;
+}
+
+.modal-2__open-label,.modal-3__open-label,
+.modal-2__close-label,.modal-3__close-label {
+	cursor: pointer;
+}
+
+.modal-2__open-label,.modal-3__open-label {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    width: 50px;
+    height: 50px;
+		outline: 1px solid #000066;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: opacity .3s ease;
+    z-index: 5;
+		padding: 0px;
+}
+
+label.modal-2__open-label,label.modal-3__open-label{
+	padding: 0px;
+}
+
+.modal-2__open-label:hover,.modal-3__open-label:hover {
+	background-color: #fff;
+	color: orange;
+	outline: 1px solid orange;
+}
+
+.modal-2,.modal-3 {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: none;
+}
+
+.modal-2__open-input:checked + label + input + .modal-2 {
+	display: block;
+	animation: modal-2-animation .6s;
+}
+.modal-3__open-input:checked + label + input + .modal-3 {
+	display: block;
+	animation: modal-2-animation .6s;
+}
+
+.modal-2__content-wrap,.modal-3__content-wrap {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	max-width: 650px;
+	background-color: #fefefe;
+	z-index: 2;
+	border-radius: 5px;
+}
+
+.modal-2__close-label,.modal-3__close-label {
+	background-color: #777;
+	color: #fff;
+	border: 2px solid #fff;
+	border-radius: 20px;
+	width: 36px;
+	height: 36px;
+	line-height: 1.6;
+	text-align: center;
+	display: table-cell;
+	position: fixed;
+	top: -15px;
+	right: -2%;
+	z-index: 99999;
+	font-size: 1.1em;
+	padding: 0px;
+}
+
+.modal-2__content,.modal-3__content {
+	max-height: 50vh;
+	overflow-y: auto;
+	padding: 39px 45px 40px;
+}
+
+.modal-2__background,.modal-3__background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .45);
+	z-index: 1;
+}
+
+@keyframes modal-2-animation {
+	0% {
+			opacity: 0;
+	}
+	100% {
+			opacity: 1;
+	}
+}
+@keyframes modal-3-animation {
+	0% {
+			opacity: 0;
+	}
+	100% {
+			opacity: 1;
+	}
+}
+@media only screen and (max-width: 520px) {
+	.modal-2__open-label,.modal-3__open-label {
+			max-width: 90%;
+			padding: .94em 2.1em .94em 2.6em;
+	}
+
+	.modal-2__close-label,.modal-3__close-label {
+			top: -17px;
+			right: -4%;
+	}
+
+	.modal-2__content-wrap,.modal-3__content-wrap {
+			width: 90vw;
+	}
+
+	.modal-2__content,.modal-3__content {
+			padding: 33px 21px 35px;
+			max-width: 100%;
+	}
+}
+.FlexTextarea {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.FlexTextarea__dummy {
+  overflow: hidden;
+  visibility: hidden;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  min-height: 120px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  border: 1px solid;
+}
+
+.FlexTextarea__textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 1px solid #b6c3c6;
+  border-radius: 4px;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  resize: none;
+}
+
+.FlexTextarea__textarea:focus {
+  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);
+  outline: 0;
+}
+// comment_show
+.tooltip-004 {
+	display: inline-block;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 30px;
+    bottom: 180px;
+    width: 50px;
+    height: 50px;
+		outline: 1px solid #000066;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: opacity .3s ease;
+    z-index: 5;
+		padding: 0px;
+}
+
+.tooltip-004 > div {
+	cursor: pointer;
+}
+
+.tooltip-004 > span {
+	display: flex;
+	align-items: center;
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	right: 50px;
+	transform: translateY(-50%);
+	padding: .5em 1em;
+	border-radius: 3px;
+	background-color: #00b5ad;
+	color: #fff;
+	font-size: .7em;
+	white-space: normal;
+	transition: opacity .3s;
+	width: 300px;
+}
+
+.tooltip-004 > span::before {
+	position: absolute;
+	right: -6px;
+	width: 6px;
+	height: 9px;
+	background-color: inherit;
+	clip-path: polygon(0 0, 100% 50%, 0 100%);
+	content: '';
+}
+
+.tooltip-004:hover > span {
+	visibility: visible;
+	opacity: 1;
+}
+@media (hover: none) {
+	.tooltip-004:active > span {
+		visibility: visible;
+		opacity: 1;
+	}
+	}
