@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     patch "withdrawal/:id" => "users#withdrawal", as: "withdrawal"
   end
   resources :manuals, only: %i[index show] do
+    resources :comments, only: %i[create update destroy] 
     collection do
       get :bookmarks
    end

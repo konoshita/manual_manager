@@ -12,6 +12,8 @@ class ManualsController < ApplicationController
   def show
     @sentence = Sentence.new
     @sentences = @manual.sentences.order(:position) 
+    @comment = current_user.comments.new
+    @my_comment = @manual.comments.where(user_id: current_user.id).includes(:user).last
   end
 
   def bookmarks

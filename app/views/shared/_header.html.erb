@@ -20,8 +20,7 @@
       <% if current_user.admin_ok? %>
         <%= link_to admin_root_path, class:"header-button header-menu"  do %><i class="fas fa-ghost" ></i>管理パネル
         <% end %>
-        <% else %>
-        <a href="#" class="header-button header-menu"><i class="fas fa-ghost" ></i>  管理パネル</a><% end %>
+      <% end %>
       </div>
       <div class="header-nav-item">
         <%= button_to "ログアウト", destroy_user_session_path, class:"header-button header-on", method: :delete %>

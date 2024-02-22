@@ -1,0 +1,32 @@
+<%= render 'comment_show'%>
+<div class="modal-2__wrap">
+    <input type="radio" id="modal-2__open" class="modal-2__open-input" name="modal-2__trigger"/>
+    <label for="modal-2__open" class="modal-2__open-label"><i class="fas fa-plus"></i></label>
+    <input type="radio" id="modal-2__close" name="modal-2__trigger"/>
+    <div class="modal-2">
+        <div class="modal-2__content-wrap">
+            <label for="modal-2__close" class="modal-2__close-label">×</label>
+            <div class="modal-2__content">
+              <div class="main container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <h2 class="fs-1 text-center fw-bold">メモ</h2>
+                      <%= form_with(model:[@manual, @comment], method: :post) do |f|%>
+                        <div class="mb-4">
+                          <%= f.text_area :comment_content, class:"form-control", rows:"5"%>
+                        </div>
+                        <div class="text-center pt-4 col-md-6 offset-md-3">
+                          <%= f.hidden_field :manual_id, value: @manual.id %>
+                          <%= f.submit "登録",class:"btn btn-primary" %>
+                        </div>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <label for="modal-2__close">
+            <div class="modal-2__background"></div>
+        </label>
+    </div>
+</div>

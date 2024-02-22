@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :manuals
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_manuals, through: :bookmarks, source: :manual
+  has_many :comments
   # has_many :quiz_to_user, dependent: :destroy
   # has_many :quizzes, through: :quiz_to_user
   # Include default devise modules. Others available are:
